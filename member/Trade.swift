@@ -10,6 +10,12 @@ import UIKit
 
 class Trade: UITableViewController {
     
+    var usedQuantity : String = ""
+    
+    var vaildQuantity : String = ""
+    
+    var customerUsername : String = ""
+    
     @IBOutlet weak var planAButton: UIButton!
 
     @IBOutlet weak var planBButton: UIButton!
@@ -18,14 +24,13 @@ class Trade: UITableViewController {
     
     @IBOutlet weak var vaildQuantityLabel: UILabel!
     
+    @IBOutlet weak var usedQuantityLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        usedQuantityLabel.text = usedQuantity
+        vaildQuantityLabel.text = vaildQuantity
     }
     
     override func didReceiveMemoryWarning() {
@@ -35,23 +40,87 @@ class Trade: UITableViewController {
     
     @IBAction func doneButtonAction(sender: UIBarButtonItem) {
         
+        newTrade(customerUsername, quantity : quantityTextField.text)
+    }
+    
+    func newTrade(username:String,quantity:String) {
         
+        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        indicator.center = view.center
+        view.addSubview(indicator)
+        indicator.startAnimating()
+        
+        
+        let manager = AFHTTPRequestOperationManager()
+        manager.responseSerializer.acceptableContentTypes = NSSet().setByAddingObject("text/html")
+        let url = "http://member.mtscandic.com/api/trade_add"
+        println(url)
+        
+        let shopId : String = NSUserDefaults.standardUserDefaults().objectForKey("shopId") as! String
+        
+        let params:NSDictionary = ["customer_username":username,
+                                    "shop_id":shopId,
+                                    "quantity":quantity,
+                                    "trade_type":"1"]
+        
+        println(params)
+        
+        manager.GET(url,
+            parameters: params as [NSObject : AnyObject],
+            success: { (operation: AFHTTPRequestOperation!,
+                responseObject: AnyObject!) in
+                
+                println(responseObject.description)
+                
+                indicator.stopAnimating()
+                
+                let responseDict = responseObject as! Dictionary<String,AnyObject>
+                
+                let responseCode = responseDict["resp"] as! String
+                
+//                if responseCode == "0000"{
+                
+                let alert = UIAlertView()
+                alert.title = "Success"
+                alert.message = ""
+                alert.addButtonWithTitle("OK")
+                alert.show()
+               
+                
+                    self.navigationController?.popViewControllerAnimated(true)
+//                }
+                
+            },
+            failure: { (operation: AFHTTPRequestOperation!,
+                error: NSError!) in
+                
+                indicator.stopAnimating()
+                println(error.localizedDescription)
+                
+                let alert = UIAlertView()
+                alert.title = "Success"
+                alert.message = ""
+                alert.addButtonWithTitle("OK")
+                alert.show()
+                
+                self.navigationController?.popViewControllerAnimated(true)
+        })
     }
     
     
     // MARK: - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
-    }
+//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        // #warning Potentially incomplete method implementation.
+//        // Return the number of sections.
+//        return 0
+//    }
+//    
+//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete method implementation.
+//        // Return the number of rows in the section.
+//        return 0
+//    }
     
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

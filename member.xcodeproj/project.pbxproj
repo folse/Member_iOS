@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		761038C23CD5C8B939693762 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA41DBE74A0951A11E141058 /* libPods.a */; };
 		A1560F531B40CCD800402354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1560F521B40CCD800402354 /* AppDelegate.swift */; };
-		A1560F551B40CCD800402354 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1560F541B40CCD800402354 /* ViewController.swift */; };
 		A1560F581B40CCD800402354 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1560F561B40CCD800402354 /* Main.storyboard */; };
 		A1560F5A1B40CCD800402354 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1560F591B40CCD800402354 /* Images.xcassets */; };
 		A1560F5D1B40CCD800402354 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1560F5B1B40CCD800402354 /* LaunchScreen.xib */; };
@@ -37,7 +36,6 @@
 		A1560F4D1B40CCD800402354 /* member.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = member.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1560F511B40CCD800402354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1560F521B40CCD800402354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A1560F541B40CCD800402354 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A1560F571B40CCD800402354 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A1560F591B40CCD800402354 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A1560F5C1B40CCD800402354 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -104,7 +102,6 @@
 			children = (
 				A1560F561B40CCD800402354 /* Main.storyboard */,
 				A1560F521B40CCD800402354 /* AppDelegate.swift */,
-				A1560F541B40CCD800402354 /* ViewController.swift */,
 				A1D1DC9F1B4365CF0068FCCF /* Main.swift */,
 				A1C6802E1B440F1E00C0BBDE /* Trade.swift */,
 				A1D1DCA11B4366660068FCCF /* Login.swift */,
@@ -286,7 +283,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1560F551B40CCD800402354 /* ViewController.swift in Sources */,
 				A1C6802B1B440EBA00C0BBDE /* NewCustomer.swift in Sources */,
 				A1C6802F1B440F1E00C0BBDE /* Trade.swift in Sources */,
 				A1D1DCA01B4365CF0068FCCF /* Main.swift in Sources */,
@@ -420,10 +416,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = member/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "member/Bridging-Header.h";
 			};
 			name = Debug;
@@ -434,10 +432,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = member/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "member/Bridging-Header.h";
 			};
 			name = Release;

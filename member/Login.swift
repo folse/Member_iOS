@@ -31,18 +31,23 @@ class Login: UITableViewController {
     
     @IBAction func loginButtonAction(sender: UIBarButtonItem) {
         
-        NSLog(emailTextField.text)
-        
         login(emailTextField.text, password: passwordTextField.text)
         
     }
     
     func login(username:String,password:String) {
+        
+        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        indicator.center = view.center
+        view.addSubview(indicator)
+        indicator.startAnimating()
+        
+        
         let manager = AFHTTPRequestOperationManager()
+        manager.responseSerializer.acceptableContentTypes = NSSet().setByAddingObject("text/html")
         let url = "http://member.mtscandic.com/api/login"
         println(url)
-        let params:NSDictionary = ["username":username,
-            "password":password]
+        let params:NSDictionary = ["username":username,"password":password]
         
         println(params)
         
@@ -51,14 +56,25 @@ class Login: UITableViewController {
             success: { (operation: AFHTTPRequestOperation!,
                 responseObject: AnyObject!) in
                 
-//                NSLog(responseObject)
+                println(responseObject.description)
                 
-                //                Log(responseObject.description)
+                indicator.stopAnimating()
+                
+                let responseDict = responseObject as! Dictionary<String,AnyObject>
+                
+                let shopId = responseDict["shop_id"] as! String
+                
+                NSUserDefaults.standardUserDefaults().setObject(shopId, forKey: "shopId")
+                
+                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isLogined")
+                                
+                self.dismissViewControllerAnimated(true, completion: nil)
             },
             failure: { (operation: AFHTTPRequestOperation!,
                 error: NSError!) in
-                //                self.weatherInfo.text = "Error: " + error.localizedDescription
                 
+                indicator.stopAnimating()
+                println(error.localizedDescription)
         })
     }
     

@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class NewCustomer: UITableViewController {
     
     @IBOutlet weak var phoneTextField: UITextField!
@@ -37,11 +38,26 @@ class NewCustomer: UITableViewController {
     }
     
     func registerCustomer(username:String,realName:String) {
+        
+        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        indicator.center = view.center
+        view.addSubview(indicator)
+        indicator.startAnimating()
+        
         let manager = AFHTTPRequestOperationManager()
+        manager.responseSerializer.acceptableContentTypes = NSSet().setByAddingObject("text/html")
+        
         let url = "http://member.mtscandic.com/api/membership_new"
         println(url)
-        let params:NSDictionary = ["username":username,
-            "real_name":realName]
+        
+        let shopId : String = NSUserDefaults.standardUserDefaults().objectForKey("shopId") as! String
+        
+        let params:NSDictionary = ["customer_username":username,
+                                   "real_name":realName,
+                                   "shop_id":shopId,
+                                   "phone":username,
+                                   "email":"",
+                                   "trade_type":"1"]
         
         println(params)
         
@@ -49,31 +65,47 @@ class NewCustomer: UITableViewController {
             parameters: params as [NSObject : AnyObject],
             success: { (operation: AFHTTPRequestOperation!,
                 responseObject: AnyObject!) in
+                                
+                println(responseObject.description)
                 
-                //                NSLog(responseObject)
+                indicator.stopAnimating()
                 
-                //                Log(responseObject.description)
+                let responseDict = responseObject as! Dictionary<String,AnyObject>
+                
+                let responseCode = responseDict["resp"] as! String
+                
+                if responseCode == "0000"{
+                                        
+                    let alert = UIAlertView()
+                    alert.title = "Success"
+                    alert.message = "Now you have a new member"
+                    alert.addButtonWithTitle("OK")
+                    alert.show()
+                    
+                    self.performSegueWithIdentifier("trade", sender: self)
+                }
             },
             failure: { (operation: AFHTTPRequestOperation!,
                 error: NSError!) in
-                //                self.weatherInfo.text = "Error: " + error.localizedDescription
                 
+                indicator.stopAnimating()
+                println(error.localizedDescription)
         })
     }
     
     // MARK: - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
-    }
+//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        // #warning Potentially incomplete method implementation.
+//        // Return the number of sections.
+//        return 0
+//    }
+//    
+//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete method implementation.
+//        // Return the number of rows in the section.
+//        return 0
+//    }
     
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -120,15 +152,15 @@ class NewCustomer: UITableViewController {
     }
     */
     
-    /*
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+        
+        var segue = segue.destinationViewController as! Trade
+        segue.customerUsername = phoneTextField.text
+        segue.vaildQuantity = "0"
     }
-    */
-    
 }
 

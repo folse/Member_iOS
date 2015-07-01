@@ -9,33 +9,72 @@
 import UIKit
 
 class Main: UITableViewController {
+    
+    var vaildQuantity : String = ""
+    
+    var usedQuantity : String = ""
 
     @IBOutlet weak var phoneTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        let isLogined : Bool = NSUserDefaults.standardUserDefaults().boolForKey("isLogined")
+        if !isLogined {
+            self.performSegueWithIdentifier("login", sender: self)
+        }
+        
     }
     
-    func getCustomerInfo() {
+    @IBAction func doneButtonAction(sender: UIBarButtonItem) {
+        
+        getCustomerInfo(phoneTextField.text)
+    }
+    
+    func getCustomerInfo(username:String) {
+        
+        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        indicator.center = view.center
+        view.addSubview(indicator)
+        indicator.startAnimating()
+        
         let manager = AFHTTPRequestOperationManager()
-        let url = "http://member.mtscandic.com/api/customer"
+        manager.responseSerializer.acceptableContentTypes = NSSet().setByAddingObject("text/html")
+        let url = "http://member.mtscandic.com/api/membership"
         println(url)
-        let params:NSDictionary = ["shop_id":"37.785834",
-                                   "customer_username":"-122.406417"]
+        
+        let shopId : String = NSUserDefaults.standardUserDefaults().objectForKey("shopId") as! String
+        
+        let params:NSDictionary = ["shop_id":shopId,
+                                   "customer_username":username,
+                                   "trade_type":"1"]
         
         println(params)
         manager.GET(url,
             parameters: params as [NSObject : AnyObject],
             success: { (operation: AFHTTPRequestOperation!,
                 responseObject: AnyObject!) in
-                //                Log(responseObject.description)
+                
+                println(responseObject.description)
+                
+                indicator.stopAnimating()
+                
+                let responseDict = responseObject as! Dictionary<String,AnyObject>
+                
+                let data = responseObject["data"] as! Dictionary<String,AnyObject>
+                
+//                self.usedQuantity = data["used_quantity"] as! String
+//                
+//                self.vaildQuantity = data["vaild_quantity"] as! String
+                
+                self.performSegueWithIdentifier("trade", sender: self)
+                
             },
             failure: { (operation: AFHTTPRequestOperation!,
                 error: NSError!) in
-                //                self.weatherInfo.text = "Error: " + error.localizedDescription
                 
+                indicator.stopAnimating()
+                println(error.localizedDescription)
         })
     }
     
@@ -46,17 +85,17 @@ class Main: UITableViewController {
     
     // MARK: - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
-    }
+//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        // #warning Potentially incomplete method implementation.
+//        // Return the number of sections.
+//        return 0
+//    }
+//    
+//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete method implementation.
+//        // Return the number of rows in the section.
+//        return 0
+//    }
     
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -67,6 +106,12 @@ class Main: UITableViewController {
     return cell
     }
     */
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        if indexPath.row == 1{
+            self.performSegueWithIdentifier("newCustomer", sender: self)
+        }
+    }
     
     /*
     // Override to support conditional editing of the table view.
@@ -103,14 +148,18 @@ class Main: UITableViewController {
     }
     */
     
-    /*
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "trade"{
+            
+            var segue = segue.destinationViewController as! Trade
+            segue.customerUsername = phoneTextField.text
+            segue.vaildQuantity = self.vaildQuantity
+            segue.usedQuantity = self.usedQuantity
+        }
     }
-    */
-    
 }

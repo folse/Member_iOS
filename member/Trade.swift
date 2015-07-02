@@ -40,10 +40,10 @@ class Trade: UITableViewController {
     
     @IBAction func doneButtonAction(sender: UIBarButtonItem) {
         
-        newTrade(customerUsername, quantity : quantityTextField.text)
+        trade(customerUsername, quantity : quantityTextField.text)
     }
     
-    func newTrade(username:String,quantity:String) {
+    func trade(username:String,quantity:String) {
         
         let indicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
         indicator.center = view.center
@@ -85,9 +85,8 @@ class Trade: UITableViewController {
                 alert.message = ""
                 alert.addButtonWithTitle("OK")
                 alert.show()
-               
                 
-                    self.navigationController?.popViewControllerAnimated(true)
+                self.navigationController?.popViewControllerAnimated(true)
 //                }
                 
             },
@@ -95,6 +94,8 @@ class Trade: UITableViewController {
                 error: NSError!) in
                 
                 indicator.stopAnimating()
+                println(error.code)
+                println(error.localizedFailureReason)
                 println(error.localizedDescription)
                 
                 let alert = UIAlertView()

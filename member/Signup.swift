@@ -1,5 +1,5 @@
 //
-//  NewCustomer.swift
+//  Signup.swift
 //  member
 //
 //  Created by Jennifer on 7/1/15.
@@ -9,7 +9,7 @@
 import UIKit
 
 
-class NewCustomer: UITableViewController {
+class Signup: UITableViewController {
     
     @IBOutlet weak var phoneTextField: UITextField!
     

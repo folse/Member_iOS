@@ -108,8 +108,11 @@ class Main: UITableViewController {
     */
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-        if indexPath.row == 1{
-            self.performSegueWithIdentifier("newCustomer", sender: self)
+        
+        if indexPath.row == 1 {
+            self.performSegueWithIdentifier("signup", sender: self)
+        }else if indexPath.row == 2 {
+            self.performSegueWithIdentifier("charge", sender: self)
         }
     }
     

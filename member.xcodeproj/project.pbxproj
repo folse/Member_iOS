@@ -13,7 +13,8 @@
 		A1560F5A1B40CCD800402354 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1560F591B40CCD800402354 /* Images.xcassets */; };
 		A1560F5D1B40CCD800402354 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1560F5B1B40CCD800402354 /* LaunchScreen.xib */; };
 		A1560F691B40CCD800402354 /* memberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1560F681B40CCD800402354 /* memberTests.swift */; };
-		A1C6802B1B440EBA00C0BBDE /* NewCustomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C6802A1B440EBA00C0BBDE /* NewCustomer.swift */; };
+		A163F27E1B44BB7800DC8CCE /* Charge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163F27D1B44BB7800DC8CCE /* Charge.swift */; };
+		A1C6802B1B440EBA00C0BBDE /* Signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C6802A1B440EBA00C0BBDE /* Signup.swift */; };
 		A1C6802F1B440F1E00C0BBDE /* Trade.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C6802E1B440F1E00C0BBDE /* Trade.swift */; };
 		A1D1DCA01B4365CF0068FCCF /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D1DC9F1B4365CF0068FCCF /* Main.swift */; };
 		A1D1DCA21B4366660068FCCF /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D1DCA11B4366660068FCCF /* Login.swift */; };
@@ -42,7 +43,8 @@
 		A1560F621B40CCD800402354 /* memberTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = memberTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1560F671B40CCD800402354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1560F681B40CCD800402354 /* memberTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memberTests.swift; sourceTree = "<group>"; };
-		A1C6802A1B440EBA00C0BBDE /* NewCustomer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCustomer.swift; sourceTree = "<group>"; };
+		A163F27D1B44BB7800DC8CCE /* Charge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Charge.swift; sourceTree = "<group>"; };
+		A1C6802A1B440EBA00C0BBDE /* Signup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Signup.swift; sourceTree = "<group>"; };
 		A1C6802E1B440F1E00C0BBDE /* Trade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trade.swift; sourceTree = "<group>"; };
 		A1D1DC9F1B4365CF0068FCCF /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		A1D1DCA11B4366660068FCCF /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
@@ -103,9 +105,10 @@
 				A1560F561B40CCD800402354 /* Main.storyboard */,
 				A1560F521B40CCD800402354 /* AppDelegate.swift */,
 				A1D1DC9F1B4365CF0068FCCF /* Main.swift */,
-				A1C6802E1B440F1E00C0BBDE /* Trade.swift */,
 				A1D1DCA11B4366660068FCCF /* Login.swift */,
-				A1C6802A1B440EBA00C0BBDE /* NewCustomer.swift */,
+				A1C6802E1B440F1E00C0BBDE /* Trade.swift */,
+				A163F27D1B44BB7800DC8CCE /* Charge.swift */,
+				A1C6802A1B440EBA00C0BBDE /* Signup.swift */,
 				A1560F591B40CCD800402354 /* Images.xcassets */,
 				A1560F5B1B40CCD800402354 /* LaunchScreen.xib */,
 				A1560F501B40CCD800402354 /* Supporting Files */,
@@ -283,7 +286,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1C6802B1B440EBA00C0BBDE /* NewCustomer.swift in Sources */,
+				A1C6802B1B440EBA00C0BBDE /* Signup.swift in Sources */,
+				A163F27E1B44BB7800DC8CCE /* Charge.swift in Sources */,
 				A1C6802F1B440F1E00C0BBDE /* Trade.swift in Sources */,
 				A1D1DCA01B4365CF0068FCCF /* Main.swift in Sources */,
 				A1560F531B40CCD800402354 /* AppDelegate.swift in Sources */,
@@ -431,8 +435,8 @@
 			baseConfigurationReference = 4FC0846E4FFA4AC81C53E6E5 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				INFOPLIST_FILE = member/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

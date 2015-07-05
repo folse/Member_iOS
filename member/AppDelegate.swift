@@ -8,6 +8,8 @@
 
 import UIKit
 
+let API_ROOT = "http://member.mtscandic.com/api/"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

@@ -45,7 +45,7 @@ class Login: UITableViewController {
         
         let manager = AFHTTPRequestOperationManager()
         manager.responseSerializer.acceptableContentTypes = NSSet().setByAddingObject("text/html")
-        let url = "http://member.mtscandic.com/api/login"
+        let url = API_ROOT + "login"
         println(url)
         let params:NSDictionary = ["username":username,"password":password]
         

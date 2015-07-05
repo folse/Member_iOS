@@ -53,7 +53,8 @@ class Trade: UITableViewController {
         
         let manager = AFHTTPRequestOperationManager()
         manager.responseSerializer.acceptableContentTypes = NSSet().setByAddingObject("text/html")
-        let url = "http://member.mtscandic.com/api/trade_add"
+
+        let url = API_ROOT + "trade_add"
         println(url)
         
         let shopId : String = NSUserDefaults.standardUserDefaults().objectForKey("shopId") as! String

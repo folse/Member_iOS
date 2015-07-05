@@ -12,23 +12,12 @@
 		A1560F581B40CCD800402354 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1560F561B40CCD800402354 /* Main.storyboard */; };
 		A1560F5A1B40CCD800402354 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1560F591B40CCD800402354 /* Images.xcassets */; };
 		A1560F5D1B40CCD800402354 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1560F5B1B40CCD800402354 /* LaunchScreen.xib */; };
-		A1560F691B40CCD800402354 /* memberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1560F681B40CCD800402354 /* memberTests.swift */; };
 		A163F27E1B44BB7800DC8CCE /* Charge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163F27D1B44BB7800DC8CCE /* Charge.swift */; };
 		A1C6802B1B440EBA00C0BBDE /* Signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C6802A1B440EBA00C0BBDE /* Signup.swift */; };
 		A1C6802F1B440F1E00C0BBDE /* Trade.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C6802E1B440F1E00C0BBDE /* Trade.swift */; };
 		A1D1DCA01B4365CF0068FCCF /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D1DC9F1B4365CF0068FCCF /* Main.swift */; };
 		A1D1DCA21B4366660068FCCF /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D1DCA11B4366660068FCCF /* Login.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		A1560F631B40CCD800402354 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A1560F451B40CCD700402354 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A1560F4C1B40CCD800402354;
-			remoteInfo = member;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4FC0846E4FFA4AC81C53E6E5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -40,9 +29,6 @@
 		A1560F571B40CCD800402354 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A1560F591B40CCD800402354 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A1560F5C1B40CCD800402354 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		A1560F621B40CCD800402354 /* memberTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = memberTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1560F671B40CCD800402354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A1560F681B40CCD800402354 /* memberTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memberTests.swift; sourceTree = "<group>"; };
 		A163F27D1B44BB7800DC8CCE /* Charge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Charge.swift; sourceTree = "<group>"; };
 		A1C6802A1B440EBA00C0BBDE /* Signup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Signup.swift; sourceTree = "<group>"; };
 		A1C6802E1B440F1E00C0BBDE /* Trade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trade.swift; sourceTree = "<group>"; };
@@ -57,13 +43,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				761038C23CD5C8B939693762 /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A1560F5F1B40CCD800402354 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +62,6 @@
 			isa = PBXGroup;
 			children = (
 				A1560F4F1B40CCD800402354 /* member */,
-				A1560F651B40CCD800402354 /* memberTests */,
 				A1560F4E1B40CCD800402354 /* Products */,
 				657F8805807F5671E1A1848D /* Pods */,
 				C6BC1953EF190CB4D2494C6E /* Frameworks */,
@@ -94,7 +72,6 @@
 			isa = PBXGroup;
 			children = (
 				A1560F4D1B40CCD800402354 /* member.app */,
-				A1560F621B40CCD800402354 /* memberTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -121,23 +98,6 @@
 			children = (
 				A11491E21B421B7D00327F4A /* Bridging-Header.h */,
 				A1560F511B40CCD800402354 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		A1560F651B40CCD800402354 /* memberTests */ = {
-			isa = PBXGroup;
-			children = (
-				A1560F681B40CCD800402354 /* memberTests.swift */,
-				A1560F661B40CCD800402354 /* Supporting Files */,
-			);
-			path = memberTests;
-			sourceTree = "<group>";
-		};
-		A1560F661B40CCD800402354 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				A1560F671B40CCD800402354 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -172,24 +132,6 @@
 			productReference = A1560F4D1B40CCD800402354 /* member.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A1560F611B40CCD800402354 /* memberTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A1560F6F1B40CCD800402354 /* Build configuration list for PBXNativeTarget "memberTests" */;
-			buildPhases = (
-				A1560F5E1B40CCD800402354 /* Sources */,
-				A1560F5F1B40CCD800402354 /* Frameworks */,
-				A1560F601B40CCD800402354 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A1560F641B40CCD800402354 /* PBXTargetDependency */,
-			);
-			name = memberTests;
-			productName = memberTests;
-			productReference = A1560F621B40CCD800402354 /* memberTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -202,10 +144,6 @@
 					A1560F4C1B40CCD800402354 = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = V68CP8VT5Z;
-					};
-					A1560F611B40CCD800402354 = {
-						CreatedOnToolsVersion = 6.3.2;
-						TestTargetID = A1560F4C1B40CCD800402354;
 					};
 				};
 			};
@@ -223,7 +161,6 @@
 			projectRoot = "";
 			targets = (
 				A1560F4C1B40CCD800402354 /* member */,
-				A1560F611B40CCD800402354 /* memberTests */,
 			);
 		};
 /* End PBXProject section */
@@ -236,13 +173,6 @@
 				A1560F581B40CCD800402354 /* Main.storyboard in Resources */,
 				A1560F5D1B40CCD800402354 /* LaunchScreen.xib in Resources */,
 				A1560F5A1B40CCD800402354 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A1560F601B40CCD800402354 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,23 +225,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A1560F5E1B40CCD800402354 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A1560F691B40CCD800402354 /* memberTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A1560F641B40CCD800402354 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A1560F4C1B40CCD800402354 /* member */;
-			targetProxy = A1560F631B40CCD800402354 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A1560F561B40CCD800402354 /* Main.storyboard */ = {
@@ -419,6 +333,7 @@
 			baseConfigurationReference = 851F651B7697D1E5B80A93D4 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = member/Info.plist;
@@ -435,6 +350,7 @@
 			baseConfigurationReference = 4FC0846E4FFA4AC81C53E6E5 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				INFOPLIST_FILE = member/Info.plist;
@@ -443,40 +359,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "member/Bridging-Header.h";
-			};
-			name = Release;
-		};
-		A1560F701B40CCD800402354 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = memberTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/member.app/member";
-			};
-			name = Debug;
-		};
-		A1560F711B40CCD800402354 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = memberTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/member.app/member";
 			};
 			name = Release;
 		};
@@ -497,15 +379,6 @@
 			buildConfigurations = (
 				A1560F6D1B40CCD800402354 /* Debug */,
 				A1560F6E1B40CCD800402354 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A1560F6F1B40CCD800402354 /* Build configuration list for PBXNativeTarget "memberTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A1560F701B40CCD800402354 /* Debug */,
-				A1560F711B40CCD800402354 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

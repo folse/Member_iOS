@@ -40,7 +40,8 @@ class Main: UITableViewController {
         
         let manager = AFHTTPRequestOperationManager()
         manager.responseSerializer.acceptableContentTypes = NSSet().setByAddingObject("text/html")
-        let url = "http://member.mtscandic.com/api/membership"
+
+        let url = API_ROOT + "membership"
         println(url)
         
         let shopId : String = NSUserDefaults.standardUserDefaults().objectForKey("shopId") as! String
@@ -61,14 +62,20 @@ class Main: UITableViewController {
                 
                 let responseDict = responseObject as! Dictionary<String,AnyObject>
                 
-                let data = responseObject["data"] as! Dictionary<String,AnyObject>
+                let respCode = responseDict["resp"] as! String
                 
-//                self.usedQuantity = data["used_quantity"] as! String
-//                
-//                self.vaildQuantity = data["vaild_quantity"] as! String
-                
-                self.performSegueWithIdentifier("trade", sender: self)
-                
+                if respCode == "0000" {
+                    
+                    let data = responseObject["data"] as! Dictionary<String,AnyObject>
+                    
+                    let usedQuantityInt: AnyObject? = data["used_quantity"]
+                    let vaildQuantityInt: AnyObject? = data["vaild_quantity"]
+                    
+                    self.usedQuantity  = "\(usedQuantityInt!)"
+                    self.vaildQuantity  = "\(vaildQuantityInt!)"
+                    
+                    self.performSegueWithIdentifier("trade", sender: self)
+                }
             },
             failure: { (operation: AFHTTPRequestOperation!,
                 error: NSError!) in
@@ -107,12 +114,15 @@ class Main: UITableViewController {
     }
     */
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){1
         
-        if indexPath.row == 1 {
-            self.performSegueWithIdentifier("signup", sender: self)
-        }else if indexPath.row == 2 {
-            self.performSegueWithIdentifier("charge", sender: self)
+        switch indexPath.row {
+            case 1:
+                self.performSegueWithIdentifier("signup", sender: self)
+            case 2:
+                self.performSegueWithIdentifier("charge", sender: self)
+            default:
+                println("")
         }
     }
     

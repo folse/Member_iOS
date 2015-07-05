@@ -17,9 +17,7 @@ class Charge: UITableViewController {
         @IBOutlet weak var phoneTextField: UITextField!
 
         @IBOutlet weak var quantityTextField: UITextField!
-        
-        @IBOutlet weak var vaildQuantityLabel: UILabel!
-        
+    
         override func viewDidLoad() {
             super.viewDidLoad()
             
@@ -46,7 +44,7 @@ class Charge: UITableViewController {
             
             let manager = AFHTTPRequestOperationManager()
             manager.responseSerializer.acceptableContentTypes = NSSet().setByAddingObject("text/html")
-            let url = "http://member.mtscandic.com/api/order_add"
+            let url = API_ROOT + "order_add"
             println(url)
             
             let shopId : String = NSUserDefaults.standardUserDefaults().objectForKey("shopId") as! String

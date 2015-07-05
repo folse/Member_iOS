@@ -47,7 +47,7 @@ class Signup: UITableViewController {
         let manager = AFHTTPRequestOperationManager()
         manager.responseSerializer.acceptableContentTypes = NSSet().setByAddingObject("text/html")
         
-        let url = "http://member.mtscandic.com/api/membership_new"
+        let url = API_ROOT + "membership_new"
         println(url)
         
         let shopId : String = NSUserDefaults.standardUserDefaults().objectForKey("shopId") as! String

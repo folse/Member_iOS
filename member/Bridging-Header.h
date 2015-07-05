@@ -9,7 +9,6 @@
 #ifndef member_Bridging_Header_h
 #define member_Bridging_Header_h
 
-
 #import "AFNetworking.h"
 
 #endif

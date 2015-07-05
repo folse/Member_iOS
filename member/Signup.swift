@@ -17,14 +17,18 @@ class Signup: UITableViewController {
 
     @IBOutlet weak var quantityTextField: UITextField!
     
-    @IBOutlet weak var planAButton: UIButton!
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        phoneTextField.text = ""
+        realNameTextField.text = ""
+        quantityTextField.text = ""
+    }
     
-    @IBOutlet weak var planBButton: UIButton!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        phoneTextField.becomeFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {
@@ -34,10 +38,10 @@ class Signup: UITableViewController {
     
     @IBAction func DoneButtonAction(sender: UIBarButtonItem) {
         
-        registerCustomer(phoneTextField.text, realName: realNameTextField.text)
+        registerCustomer(phoneTextField.text, realName: realNameTextField.text, quantity:quantityTextField.text)
     }
     
-    func registerCustomer(username:String,realName:String) {
+    func registerCustomer(username:String,realName:String,quantity:String) {
         
         let indicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
         indicator.center = view.center
@@ -57,7 +61,7 @@ class Signup: UITableViewController {
                                    "shop_id":shopId,
                                    "phone":username,
                                    "email":"",
-                                   "trade_type":"1"]
+                                   "quantity":quantity]
         
         println(params)
         
@@ -74,8 +78,8 @@ class Signup: UITableViewController {
                 
                 let responseCode = responseDict["resp"] as! String
                 
-                if responseCode == "0000"{
-                                        
+                if responseCode == "0000" {
+                    
                     let alert = UIAlertView()
                     alert.title = "Success"
                     alert.message = "Now you have a new member"
@@ -83,13 +87,28 @@ class Signup: UITableViewController {
                     alert.show()
                     
                     self.performSegueWithIdentifier("trade", sender: self)
+                    
+                }else {
+                    
+                    let message = responseDict["msg"] as! String
+                    
+                    let alert = UIAlertView()
+                    alert.title = "Faild"
+                    alert.message = message
+                    alert.addButtonWithTitle("OK")
+                    alert.show()
                 }
             },
             failure: { (operation: AFHTTPRequestOperation!,
                 error: NSError!) in
-                
+       
                 indicator.stopAnimating()
-                println(error.localizedDescription)
+                
+                let alert = UIAlertView()
+                alert.title = "Faild"
+                alert.message = error.localizedDescription
+                alert.addButtonWithTitle("OK")
+                alert.show()
         })
     }
     
@@ -151,16 +170,18 @@ class Signup: UITableViewController {
     return true
     }
     */
-    
-    
+        
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        var segue = segue.destinationViewController as! Trade
-        segue.customerUsername = phoneTextField.text
-        segue.vaildQuantity = "0"
+        if segue.identifier == "trade"{
+            
+            var segue = segue.destinationViewController as! Trade
+            segue.customerUsername = phoneTextField.text
+            segue.vaildQuantity = quantityTextField.text
+            segue.usedQuantity = "0"
+        }
     }
 }
-

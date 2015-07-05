@@ -20,15 +20,22 @@ class Main: UITableViewController {
         super.viewDidLoad()
         
         let isLogined : Bool = NSUserDefaults.standardUserDefaults().boolForKey("isLogined")
-        if !isLogined {
+        
+        if isLogined {
+            phoneTextField.becomeFirstResponder()
+        }else {
             self.performSegueWithIdentifier("login", sender: self)
         }
-        
     }
     
-    @IBAction func doneButtonAction(sender: UIBarButtonItem) {
+    @IBAction func tradeButtonAction(sender: UIBarButtonItem) {
         
         getCustomerInfo(phoneTextField.text)
+    }
+    
+    @IBAction func punchButtonAction(sender: UIBarButtonItem) {
+        
+        punch(phoneTextField.text)
     }
     
     func getCustomerInfo(username:String) {
@@ -47,8 +54,7 @@ class Main: UITableViewController {
         let shopId : String = NSUserDefaults.standardUserDefaults().objectForKey("shopId") as! String
         
         let params:NSDictionary = ["shop_id":shopId,
-                                   "customer_username":username,
-                                   "trade_type":"1"]
+                                   "customer_username":username]
         
         println(params)
         manager.GET(url,
@@ -68,20 +74,102 @@ class Main: UITableViewController {
                     
                     let data = responseObject["data"] as! Dictionary<String,AnyObject>
                     
-                    let usedQuantityInt: AnyObject? = data["used_quantity"]
-                    let vaildQuantityInt: AnyObject? = data["vaild_quantity"]
+                    let usedQuantityInt = data["used_quantity"]  as! Int
+                    let vaildQuantityInt = data["vaild_quantity"]  as! Int
                     
-                    self.usedQuantity  = "\(usedQuantityInt!)"
-                    self.vaildQuantity  = "\(vaildQuantityInt!)"
+                    self.usedQuantity  = "\(usedQuantityInt)"
+                    self.vaildQuantity  = "\(vaildQuantityInt)"
                     
                     self.performSegueWithIdentifier("trade", sender: self)
+                    
+                }else {
+                    
+                    let message = responseDict["msg"] as! String
+                    
+                    let alert = UIAlertView()
+                    alert.title = "Faild"
+                    alert.message = message
+                    alert.addButtonWithTitle("OK")
+                    alert.show()
                 }
             },
             failure: { (operation: AFHTTPRequestOperation!,
                 error: NSError!) in
                 
                 indicator.stopAnimating()
-                println(error.localizedDescription)
+                
+                let alert = UIAlertView()
+                alert.title = "Faild"
+                alert.message = error.localizedDescription
+                alert.addButtonWithTitle("OK")
+                alert.show()
+        })
+    }
+    
+    func punch(username:String) {
+        
+        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        indicator.center = view.center
+        view.addSubview(indicator)
+        indicator.startAnimating()
+        
+        let manager = AFHTTPRequestOperationManager()
+        manager.responseSerializer.acceptableContentTypes = NSSet().setByAddingObject("text/html")
+        
+        let url = API_ROOT + "punch_add"
+        println(url)
+        
+        let shopId : String = NSUserDefaults.standardUserDefaults().objectForKey("shopId") as! String
+        
+        let params:NSDictionary = ["shop_id":shopId,
+            "customer_username":username,
+            "trade_type":"2"]
+        
+        println(params)
+        manager.GET(url,
+            parameters: params as [NSObject : AnyObject],
+            success: { (operation: AFHTTPRequestOperation!,
+                responseObject: AnyObject!) in
+                
+                println(responseObject.description)
+                
+                indicator.stopAnimating()
+                
+                let responseDict = responseObject as! Dictionary<String,AnyObject>
+                
+                let respCode = responseDict["resp"] as! String
+                
+                if respCode == "0000" {
+                    
+                    let punchedQuantity = responseDict["punched_quantity"] as! Int
+                    
+                    let alert = UIAlertView()
+                    alert.title = "Success"
+                    alert.message = "Total Punched:  \(punchedQuantity)"
+                    alert.addButtonWithTitle("OK")
+                    alert.show()
+                    
+                }else {
+                    
+                    let message = responseDict["msg"] as! String
+                    
+                    let alert = UIAlertView()
+                    alert.title = "Faild"
+                    alert.message = message
+                    alert.addButtonWithTitle("OK")
+                    alert.show()
+                }
+            },
+            failure: { (operation: AFHTTPRequestOperation!,
+                error: NSError!) in
+                
+                indicator.stopAnimating()
+                
+                let alert = UIAlertView()
+                alert.title = "Faild"
+                alert.message = error.localizedDescription
+                alert.addButtonWithTitle("OK")
+                alert.show()
         })
     }
     
@@ -117,9 +205,9 @@ class Main: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){1
         
         switch indexPath.row {
-            case 1:
-                self.performSegueWithIdentifier("signup", sender: self)
             case 2:
+                self.performSegueWithIdentifier("signup", sender: self)
+            case 3:
                 self.performSegueWithIdentifier("charge", sender: self)
             default:
                 println("")

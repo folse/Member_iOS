@@ -16,10 +16,6 @@ class Trade: UITableViewController {
     
     var customerUsername : String = ""
     
-    @IBOutlet weak var planAButton: UIButton!
-
-    @IBOutlet weak var planBButton: UIButton!
-    
     @IBOutlet weak var quantityTextField: UITextField!
     
     @IBOutlet weak var vaildQuantityLabel: UILabel!
@@ -31,6 +27,7 @@ class Trade: UITableViewController {
         
         usedQuantityLabel.text = usedQuantity
         vaildQuantityLabel.text = vaildQuantity
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -76,36 +73,39 @@ class Trade: UITableViewController {
                 indicator.stopAnimating()
                 
                 let responseDict = responseObject as! Dictionary<String,AnyObject>
-                
                 let responseCode = responseDict["resp"] as! String
                 
-//                if responseCode == "0000"{
-                
-                let alert = UIAlertView()
-                alert.title = "Success"
-                alert.message = ""
-                alert.addButtonWithTitle("OK")
-                alert.show()
-                
-                self.navigationController?.popViewControllerAnimated(true)
-//                }
-                
+                if responseCode == "0000"{
+                                        
+                    let alert = UIAlertView()
+                    alert.title = "Success"
+                    alert.message = ""
+                    alert.addButtonWithTitle("OK")
+                    alert.show()
+                    
+                    self.navigationController?.popToRootViewControllerAnimated(true)
+                    
+                }else {
+                    
+                    let message = responseDict["msg"] as! String
+                    
+                    let alert = UIAlertView()
+                    alert.title = "Faild"
+                    alert.message = message
+                    alert.addButtonWithTitle("OK")
+                    alert.show()
+                }
             },
             failure: { (operation: AFHTTPRequestOperation!,
                 error: NSError!) in
                 
                 indicator.stopAnimating()
-                println(error.code)
-                println(error.localizedFailureReason)
-                println(error.localizedDescription)
                 
                 let alert = UIAlertView()
-                alert.title = "Success"
-                alert.message = ""
+                alert.title = "Faild"
+                alert.message = error.localizedDescription
                 alert.addButtonWithTitle("OK")
                 alert.show()
-                
-                self.navigationController?.popViewControllerAnimated(true)
         })
     }
     

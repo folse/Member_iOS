@@ -9,12 +9,13 @@
 import UIKit
 
 let API_ROOT = "http://member.mtscandic.com/api/"
+//let API_ROOT = "http://localhost/api/"
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.

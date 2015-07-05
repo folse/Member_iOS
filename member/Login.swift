@@ -17,11 +17,7 @@ class Login: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        emailTextField.becomeFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,20 +57,39 @@ class Login: UITableViewController {
                 indicator.stopAnimating()
                 
                 let responseDict = responseObject as! Dictionary<String,AnyObject>
+                let responseCode = responseDict["resp"] as! String
                 
-                let shopId = responseDict["shop_id"] as! String
-                
-                NSUserDefaults.standardUserDefaults().setObject(shopId, forKey: "shopId")
-                
-                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isLogined")
-                                
-                self.dismissViewControllerAnimated(true, completion: nil)
+                if responseCode == "0000"{
+                    
+                    let shopId = responseDict["shop_id"] as! String
+                    
+                    NSUserDefaults.standardUserDefaults().setObject(shopId, forKey: "shopId")
+                    
+                    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isLogined")
+                    
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                    
+                }else {
+                    
+                    let message = responseDict["msg"] as! String
+                    
+                    let alert = UIAlertView()
+                    alert.title = "Faild"
+                    alert.message = message
+                    alert.addButtonWithTitle("OK")
+                    alert.show()
+                }
             },
             failure: { (operation: AFHTTPRequestOperation!,
                 error: NSError!) in
                 
                 indicator.stopAnimating()
-                println(error.localizedDescription)
+                
+                let alert = UIAlertView()
+                alert.title = "Faild"
+                alert.message = error.localizedDescription
+                alert.addButtonWithTitle("OK")
+                alert.show()
         })
     }
     

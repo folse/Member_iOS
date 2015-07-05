@@ -21,7 +21,7 @@ class Charge: UITableViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
             
-            
+            phoneTextField.becomeFirstResponder()
         }
         
         override func didReceiveMemoryWarning() {
@@ -66,9 +66,7 @@ class Charge: UITableViewController {
                     indicator.stopAnimating()
                     
                     let responseDict = responseObject as! Dictionary<String,AnyObject>
-                    
                     let responseCode = responseDict["resp"] as! String
-                    
                     if responseCode == "0000"{
                     
                         let alert = UIAlertView()
@@ -78,14 +76,28 @@ class Charge: UITableViewController {
                         alert.show()
                     
                         self.navigationController?.popViewControllerAnimated(true)
+                        
+                    }else {
+                        
+                        let message = responseDict["msg"] as! String
+                        
+                        let alert = UIAlertView()
+                        alert.title = "Faild"
+                        alert.message = message
+                        alert.addButtonWithTitle("OK")
+                        alert.show()
                     }
-                    
                 },
                 failure: { (operation: AFHTTPRequestOperation!,
                     error: NSError!) in
                     
                     indicator.stopAnimating()
-                    println(error.localizedDescription)
+                    
+                    let alert = UIAlertView()
+                    alert.title = "Faild"
+                    alert.message = error.localizedDescription
+                    alert.addButtonWithTitle("OK")
+                    alert.show()
             })
         }
         

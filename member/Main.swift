@@ -10,9 +10,11 @@ import UIKit
 
 class Main: UITableViewController {
     
+    var usedQuantity : String = ""
+    
     var vaildQuantity : String = ""
     
-    var usedQuantity : String = ""
+    var punchedQuantity : String = ""
 
     @IBOutlet weak var phoneTextField: UITextField!
     
@@ -31,11 +33,6 @@ class Main: UITableViewController {
     @IBAction func tradeButtonAction(sender: UIBarButtonItem) {
         
         getCustomerInfo(phoneTextField.text)
-    }
-    
-    @IBAction func punchButtonAction(sender: UIBarButtonItem) {
-        
-        punch(phoneTextField.text)
     }
     
     func getCustomerInfo(username:String) {
@@ -76,9 +73,11 @@ class Main: UITableViewController {
                     
                     let usedQuantityInt = data["used_quantity"]  as! Int
                     let vaildQuantityInt = data["vaild_quantity"]  as! Int
+                    let punchedQuantityInt = data["punched_quantity"] as! Int
                     
                     self.usedQuantity  = "\(usedQuantityInt)"
                     self.vaildQuantity  = "\(vaildQuantityInt)"
+                    self.punchedQuantity  = "\(punchedQuantityInt)"
                     
                     self.performSegueWithIdentifier("trade", sender: self)
                     
@@ -105,74 +104,7 @@ class Main: UITableViewController {
                 alert.show()
         })
     }
-    
-    func punch(username:String) {
         
-        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
-        indicator.center = view.center
-        view.addSubview(indicator)
-        indicator.startAnimating()
-        
-        let manager = AFHTTPRequestOperationManager()
-        manager.responseSerializer.acceptableContentTypes = NSSet().setByAddingObject("text/html")
-        
-        let url = API_ROOT + "punch_add"
-        println(url)
-        
-        let shopId : String = NSUserDefaults.standardUserDefaults().objectForKey("shopId") as! String
-        
-        let params:NSDictionary = ["shop_id":shopId,
-            "customer_username":username,
-            "trade_type":"2"]
-        
-        println(params)
-        manager.GET(url,
-            parameters: params as [NSObject : AnyObject],
-            success: { (operation: AFHTTPRequestOperation!,
-                responseObject: AnyObject!) in
-                
-                println(responseObject.description)
-                
-                indicator.stopAnimating()
-                
-                let responseDict = responseObject as! Dictionary<String,AnyObject>
-                
-                let respCode = responseDict["resp"] as! String
-                
-                if respCode == "0000" {
-                    
-                    let punchedQuantity = responseDict["punched_quantity"] as! Int
-                    
-                    let alert = UIAlertView()
-                    alert.title = "Success"
-                    alert.message = "Total Punched:  \(punchedQuantity)"
-                    alert.addButtonWithTitle("OK")
-                    alert.show()
-                    
-                }else {
-                    
-                    let message = responseDict["msg"] as! String
-                    
-                    let alert = UIAlertView()
-                    alert.title = "Faild"
-                    alert.message = message
-                    alert.addButtonWithTitle("OK")
-                    alert.show()
-                }
-            },
-            failure: { (operation: AFHTTPRequestOperation!,
-                error: NSError!) in
-                
-                indicator.stopAnimating()
-                
-                let alert = UIAlertView()
-                alert.title = "Faild"
-                alert.message = error.localizedDescription
-                alert.addButtonWithTitle("OK")
-                alert.show()
-        })
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -258,9 +190,10 @@ class Main: UITableViewController {
         if segue.identifier == "trade"{
             
             var segue = segue.destinationViewController as! Trade
-            segue.customerUsername = phoneTextField.text
-            segue.vaildQuantity = self.vaildQuantity
             segue.usedQuantity = self.usedQuantity
+            segue.vaildQuantity = self.vaildQuantity
+            segue.punchedQuantity = self.punchedQuantity
+            segue.customerUsername = phoneTextField.text
         }
     }
 }

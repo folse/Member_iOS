@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		761038C23CD5C8B939693762 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA41DBE74A0951A11E141058 /* libPods.a */; };
+		A11BE3121B4F43A30056A2DA /* Merchant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11BE3111B4F43A30056A2DA /* Merchant.swift */; };
+		A135813D1B51198100919E38 /* Promotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135813C1B51198100919E38 /* Promotion.swift */; };
 		A1560F531B40CCD800402354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1560F521B40CCD800402354 /* AppDelegate.swift */; };
 		A1560F581B40CCD800402354 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1560F561B40CCD800402354 /* Main.storyboard */; };
 		A1560F5A1B40CCD800402354 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1560F591B40CCD800402354 /* Images.xcassets */; };
@@ -23,6 +25,8 @@
 		4FC0846E4FFA4AC81C53E6E5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		851F651B7697D1E5B80A93D4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A11491E21B421B7D00327F4A /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		A11BE3111B4F43A30056A2DA /* Merchant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Merchant.swift; sourceTree = "<group>"; };
+		A135813C1B51198100919E38 /* Promotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promotion.swift; sourceTree = "<group>"; };
 		A1560F4D1B40CCD800402354 /* member.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = member.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1560F511B40CCD800402354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1560F521B40CCD800402354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 				A1C6802E1B440F1E00C0BBDE /* Trade.swift */,
 				A163F27D1B44BB7800DC8CCE /* Charge.swift */,
 				A1C6802A1B440EBA00C0BBDE /* Signup.swift */,
+				A11BE3111B4F43A30056A2DA /* Merchant.swift */,
+				A135813C1B51198100919E38 /* Promotion.swift */,
 				A1560F591B40CCD800402354 /* Images.xcassets */,
 				A1560F5B1B40CCD800402354 /* LaunchScreen.xib */,
 				A1560F501B40CCD800402354 /* Supporting Files */,
@@ -217,6 +223,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1C6802B1B440EBA00C0BBDE /* Signup.swift in Sources */,
+				A135813D1B51198100919E38 /* Promotion.swift in Sources */,
+				A11BE3121B4F43A30056A2DA /* Merchant.swift in Sources */,
 				A163F27E1B44BB7800DC8CCE /* Charge.swift in Sources */,
 				A1C6802F1B440F1E00C0BBDE /* Trade.swift in Sources */,
 				A1D1DCA01B4365CF0068FCCF /* Main.swift in Sources */,

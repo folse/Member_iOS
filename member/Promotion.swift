@@ -1,47 +1,31 @@
 //
-//  Signup.swift
+//  Promotion.swift
 //  member
 //
-//  Created by Jennifer on 7/1/15.
+//  Created by Jennifer on 7/11/15.
 //  Copyright (c) 2015 Folse. All rights reserved.
 //
 
 import UIKit
 
+class Promotion: UIViewController {
+    
+    var promotionString : String = ""
+    
+    @IBOutlet weak var promotionTextView: UITextView!
 
-class Signup: UITableViewController {
-    
-    @IBOutlet weak var phoneTextField: UITextField!
-    
-    @IBOutlet weak var realNameTextField: UITextField!
-
-    @IBOutlet weak var quantityTextField: UITextField!
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        phoneTextField.text = ""
-        realNameTextField.text = ""
-        quantityTextField.text = ""
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        phoneTextField.becomeFirstResponder()
+        self.promotionTextView.text = promotionString
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func DoneButtonAction(sender: UIBarButtonItem) {
+
+    @IBAction func saveButtonAction(sender: AnyObject) {
         
-        registerCustomer(phoneTextField.text, realName: realNameTextField.text, quantity:quantityTextField.text)
+        update_promotion(self.promotionTextView.text)
     }
     
-    func registerCustomer(username:String,realName:String,quantity:String) {
+    func update_promotion(promotion:String) {
         
         let indicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
         indicator.center = view.center
@@ -51,42 +35,35 @@ class Signup: UITableViewController {
         let manager = AFHTTPRequestOperationManager()
         manager.responseSerializer.acceptableContentTypes = NSSet().setByAddingObject("text/html")
         
-        let url = API_ROOT + "membership_new"
+        var url:String = API_ROOT + "shop_promotion"
         println(url)
         
         let shopId : String = NSUserDefaults.standardUserDefaults().objectForKey("shopId") as! String
         
-        let params:NSDictionary = ["customer_username":username,
-                                   "real_name":realName,
-                                   "shop_id":shopId,
-                                   "phone":username,
-                                   "email":"",
-                                   "quantity":quantity]
+        let params:NSDictionary = ["shop_id":shopId,
+                                   "promotion":promotion]
         
         println(params)
-        
         manager.GET(url,
             parameters: params as [NSObject : AnyObject],
             success: { (operation: AFHTTPRequestOperation!,
                 responseObject: AnyObject!) in
-                                
+                
                 println(responseObject.description)
                 
                 indicator.stopAnimating()
                 
                 let responseDict = responseObject as! Dictionary<String,AnyObject>
                 
-                let responseCode = responseDict["resp"] as! String
+                let respCode = responseDict["resp"] as! String
                 
-                if responseCode == "0000" {
+                if respCode == "0000" {
                     
                     let alert = UIAlertView()
                     alert.title = "Success"
-                    alert.message = "Now you have a new member"
+                    alert.message = ""
                     alert.addButtonWithTitle("OK")
                     alert.show()
-                    
-                    self.performSegueWithIdentifier("trade", sender: self)
                     
                 }else {
                     
@@ -101,7 +78,7 @@ class Signup: UITableViewController {
             },
             failure: { (operation: AFHTTPRequestOperation!,
                 error: NSError!) in
-       
+                
                 indicator.stopAnimating()
                 
                 let alert = UIAlertView()
@@ -111,18 +88,21 @@ class Signup: UITableViewController {
                 alert.show()
         })
     }
-           
-    // MARK: - Navigation
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+
+    /*
+    // MARK: - Navigation
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if segue.identifier == "trade"{
-            
-            var segue = segue.destinationViewController as! Trade
-            segue.customerUsername = phoneTextField.text
-            segue.vaildQuantity = quantityTextField.text
-            segue.usedQuantity = "0"
-        }
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
+    */
+
 }

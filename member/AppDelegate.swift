@@ -8,8 +8,8 @@
 
 import UIKit
 
-let API_ROOT = "http://member.mtscandic.com/api/"
-//let API_ROOT = "http://localhost/api/"
+//let API_ROOT = "http://member.mtscandic.com/api/"
+let API_ROOT = "http://localhost/api/"
 
 @UIApplicationMain
 

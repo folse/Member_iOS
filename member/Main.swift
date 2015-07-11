@@ -134,17 +134,17 @@ class Main: UITableViewController {
     }
     */
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){1
-        
-        switch indexPath.row {
-            case 2:
-                self.performSegueWithIdentifier("signup", sender: self)
-            case 3:
-                self.performSegueWithIdentifier("charge", sender: self)
-            default:
-                println("")
-        }
-    }
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){1
+//        
+//        switch indexPath.row {
+//            case 2:
+//                self.performSegueWithIdentifier("signup", sender: self)
+//            case 3:
+//                self.performSegueWithIdentifier("charge", sender: self)
+//            default:
+//                println("")
+//        }
+//    }
     
     /*
     // Override to support conditional editing of the table view.

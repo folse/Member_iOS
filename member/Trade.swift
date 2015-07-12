@@ -45,16 +45,6 @@ class Trade: UITableViewController {
             trade(customerUsername, quantity : quantityTextField.text)
         }
     }
-
-    @IBAction func punchTradeButtonAction(sender: AnyObject) {
-        
-        punch(customerUsername,isReset:false)
-    }
-    
-    @IBAction func punchResetButtonAction(sender: AnyObject) {
-        
-        punch(customerUsername,isReset:true)
-    }
     
     func trade(username:String,quantity:String) {
         
@@ -101,97 +91,17 @@ class Trade: UITableViewController {
                     
                     self.vaildAndPunchedQuantityLabel.text = self.vaildQuantity + " / " + self.punchedQuantity
                     
-                    let alert = UIAlertView()
-                    alert.title = "Success"
-                    alert.message = ""
-                    alert.addButtonWithTitle("OK")
-                    alert.show()
+                    self.view.endEditing(true)
                     
-                    //self.navigationController?.popToRootViewControllerAnimated(true)
+                    let alertController = UIAlertController(title: "Success", message:
+                        "", preferredStyle: UIAlertControllerStyle.Alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: {
                     
-                }else {
+                            (action: UIAlertAction!) in
+                        self.navigationController?.popToRootViewControllerAnimated(true)
                     
-                    let message = responseDict["msg"] as! String
-                    
-                    let alert = UIAlertView()
-                    alert.title = "Faild"
-                    alert.message = message
-                    alert.addButtonWithTitle("OK")
-                    alert.show()
-                }
-            },
-            failure: { (operation: AFHTTPRequestOperation!,
-                error: NSError!) in
-                
-                indicator.stopAnimating()
-                
-                let alert = UIAlertView()
-                alert.title = "Faild"
-                alert.message = error.localizedDescription
-                alert.addButtonWithTitle("OK")
-                alert.show()
-        })
-    }
-    
-    func punch(username:String, isReset:Bool) {
-        
-        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
-        indicator.center = view.center
-        view.addSubview(indicator)
-        indicator.startAnimating()
-        
-        let manager = AFHTTPRequestOperationManager()
-        manager.responseSerializer.acceptableContentTypes = NSSet().setByAddingObject("text/html")
-                
-        var url:String = API_ROOT + "punch_add"
-        println(url)
-        
-        if isReset {
-            
-            url = API_ROOT + "punch_reset"
-            println(url)
-        }
-        
-        let shopId : String = NSUserDefaults.standardUserDefaults().objectForKey("shopId") as! String
-        
-        let params:NSDictionary = ["shop_id":shopId,
-            "customer_username":username,
-            "trade_type":"2"]
-        
-        println(params)
-        manager.GET(url,
-            parameters: params as [NSObject : AnyObject],
-            success: { (operation: AFHTTPRequestOperation!,
-                responseObject: AnyObject!) in
-                
-                println(responseObject.description)
-                
-                indicator.stopAnimating()
-                
-                let responseDict = responseObject as! Dictionary<String,AnyObject>
-                
-                let respCode = responseDict["resp"] as! String
-                
-                if respCode == "0000" {
-                    
-                    if isReset{
-                        
-                        self.vaildAndPunchedQuantityLabel.text = self.vaildQuantity + " / 0"
-                        
-                    }else{
-                        
-                        var punchedQuantityInt = String(self.punchedQuantity).toInt()! + 1
-                        
-                        self.punchedQuantity  = "\(punchedQuantityInt)"
-                        
-                        self.vaildAndPunchedQuantityLabel.text = self.vaildQuantity + " / " + self.punchedQuantity
-                    }
-                    
-                    let alert = UIAlertView()
-                    alert.title = "Success"
-                    alert.message = ""
-                    alert.addButtonWithTitle("OK")
-                    alert.show()
+                    }))
+                    self.presentViewController(alertController, animated:true, completion: nil)
                     
                 }else {
                     
@@ -217,15 +127,18 @@ class Trade: UITableViewController {
         })
     }
         
-    /*
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "punch"{
+            
+            var segue = segue.destinationViewController as! Punch
+            segue.punchedQuantity = self.punchedQuantity.toInt()!
+            segue.customerUsername = self.customerUsername
+        }
     }
-    */
     
 }
 

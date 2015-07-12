@@ -16,6 +16,8 @@
 		A1560F5D1B40CCD800402354 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1560F5B1B40CCD800402354 /* LaunchScreen.xib */; };
 		A163F27E1B44BB7800DC8CCE /* Charge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163F27D1B44BB7800DC8CCE /* Charge.swift */; };
 		A16CC3191B52C8AD00EA6066 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16CC3181B52C8AD00EA6066 /* Member.swift */; };
+		A16CC31C1B52DB7C00EA6066 /* Punch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16CC31A1B52DB7B00EA6066 /* Punch.swift */; };
+		A16CC31D1B52DB7C00EA6066 /* PunchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16CC31B1B52DB7B00EA6066 /* PunchCell.swift */; };
 		A1C6802B1B440EBA00C0BBDE /* Signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C6802A1B440EBA00C0BBDE /* Signup.swift */; };
 		A1C6802F1B440F1E00C0BBDE /* Trade.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C6802E1B440F1E00C0BBDE /* Trade.swift */; };
 		A1D1DCA01B4365CF0068FCCF /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D1DC9F1B4365CF0068FCCF /* Main.swift */; };
@@ -36,6 +38,8 @@
 		A1560F5C1B40CCD800402354 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A163F27D1B44BB7800DC8CCE /* Charge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Charge.swift; sourceTree = "<group>"; };
 		A16CC3181B52C8AD00EA6066 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		A16CC31A1B52DB7B00EA6066 /* Punch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Punch.swift; sourceTree = "<group>"; };
+		A16CC31B1B52DB7B00EA6066 /* PunchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PunchCell.swift; sourceTree = "<group>"; };
 		A1C6802A1B440EBA00C0BBDE /* Signup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Signup.swift; sourceTree = "<group>"; };
 		A1C6802E1B440F1E00C0BBDE /* Trade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trade.swift; sourceTree = "<group>"; };
 		A1D1DC9F1B4365CF0068FCCF /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
@@ -95,6 +99,8 @@
 				A11BE3111B4F43A30056A2DA /* Merchant.swift */,
 				A135813C1B51198100919E38 /* Promotion.swift */,
 				A16CC3181B52C8AD00EA6066 /* Member.swift */,
+				A16CC31A1B52DB7B00EA6066 /* Punch.swift */,
+				A16CC31B1B52DB7B00EA6066 /* PunchCell.swift */,
 				A1560F591B40CCD800402354 /* Images.xcassets */,
 				A1560F5B1B40CCD800402354 /* LaunchScreen.xib */,
 				A1560F501B40CCD800402354 /* Supporting Files */,
@@ -228,7 +234,9 @@
 				A1C6802B1B440EBA00C0BBDE /* Signup.swift in Sources */,
 				A135813D1B51198100919E38 /* Promotion.swift in Sources */,
 				A11BE3121B4F43A30056A2DA /* Merchant.swift in Sources */,
+				A16CC31D1B52DB7C00EA6066 /* PunchCell.swift in Sources */,
 				A163F27E1B44BB7800DC8CCE /* Charge.swift in Sources */,
+				A16CC31C1B52DB7C00EA6066 /* Punch.swift in Sources */,
 				A16CC3191B52C8AD00EA6066 /* Member.swift in Sources */,
 				A1C6802F1B440F1E00C0BBDE /* Trade.swift in Sources */,
 				A1D1DCA01B4365CF0068FCCF /* Main.swift in Sources */,

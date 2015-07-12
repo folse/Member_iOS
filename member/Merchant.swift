@@ -15,6 +15,8 @@ class Merchant: UITableViewController {
     @IBOutlet weak var memberCountLabel: UILabel!
     
     var promotionString : String = ""
+    
+    var membersArray : NSArray = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,14 +59,14 @@ class Merchant: UITableViewController {
                     
                     let data = responseObject["data"] as! Dictionary<String,AnyObject>
                     
-                    let memberCountInt = data["member_count"]  as! Int
+                    self.membersArray = data["members"] as! NSArray
                     
                     var promotion = data["promotion"] as! String
  
                     self.promotionString = promotion
                     
                     self.shopNameLabel.text  = data["name"] as? String
-                    self.memberCountLabel.text  = "\(memberCountInt)"
+                    self.memberCountLabel.text  = "\(self.membersArray.count)"
                     
                 }else {
                     
@@ -105,6 +107,11 @@ class Merchant: UITableViewController {
             
             var segue = segue.destinationViewController as! Promotion
             segue.promotionString = self.promotionString
+            
+        }else if segue.identifier == "member"{
+            
+            var segue = segue.destinationViewController as! Member
+            segue.membersArray = self.membersArray
         }
     }
 }

@@ -104,6 +104,11 @@ class Main: UITableViewController {
                 alert.show()
         })
     }
+    
+    override func scrollViewWillBeginDragging(scrollView: UIScrollView)
+    {
+        self.view.endEditing(true)
+    }
         
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

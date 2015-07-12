@@ -36,7 +36,14 @@ class Trade: UITableViewController {
     
     @IBAction func memberTradeButtonAction(sender: AnyObject) {
         
-        trade(customerUsername, quantity : quantityTextField.text)
+        if quantityTextField.text.length == 0 {
+            
+            trade(customerUsername, quantity : "1")
+            
+        }else{
+            
+            trade(customerUsername, quantity : quantityTextField.text)
+        }
     }
 
     @IBAction func punchTradeButtonAction(sender: AnyObject) {
@@ -220,4 +227,8 @@ class Trade: UITableViewController {
     }
     */
     
+}
+
+extension String {
+    var length: Int { return count(self)         }  // Swift 1.2
 }

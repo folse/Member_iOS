@@ -86,7 +86,7 @@ class Main: UITableViewController {
                     let message = responseDict["msg"] as! String
                     
                     let alert = UIAlertView()
-                    alert.title = "Faild"
+                    alert.title = "Denna operation kan inte slutföras"
                     alert.message = message
                     alert.addButtonWithTitle("OK")
                     alert.show()
@@ -98,8 +98,8 @@ class Main: UITableViewController {
                 indicator.stopAnimating()
                 
                 let alert = UIAlertView()
-                alert.title = "Faild"
-                alert.message = error.localizedDescription
+                alert.title = "Denna operation kan inte slutföras"
+                alert.message = "Försök igen eller kontakta vår kundtjänst. För bättre och snabbare service, rekommenderar vi att du skickar oss en skärmdump." + error.localizedDescription + "\(error.code)"
                 alert.addButtonWithTitle("OK")
                 alert.show()
         })
@@ -195,7 +195,6 @@ class Main: UITableViewController {
         if segue.identifier == "trade"{
             
             var segue = segue.destinationViewController as! Trade
-            segue.usedQuantity = self.usedQuantity
             segue.vaildQuantity = self.vaildQuantity
             segue.punchedQuantity = self.punchedQuantity
             segue.customerUsername = phoneTextField.text

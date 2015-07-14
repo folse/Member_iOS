@@ -13,7 +13,6 @@
 		A1560F531B40CCD800402354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1560F521B40CCD800402354 /* AppDelegate.swift */; };
 		A1560F581B40CCD800402354 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1560F561B40CCD800402354 /* Main.storyboard */; };
 		A1560F5A1B40CCD800402354 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1560F591B40CCD800402354 /* Images.xcassets */; };
-		A1560F5D1B40CCD800402354 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1560F5B1B40CCD800402354 /* LaunchScreen.xib */; };
 		A163F27E1B44BB7800DC8CCE /* Charge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163F27D1B44BB7800DC8CCE /* Charge.swift */; };
 		A16CC3191B52C8AD00EA6066 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16CC3181B52C8AD00EA6066 /* Member.swift */; };
 		A16CC31C1B52DB7C00EA6066 /* Punch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16CC31A1B52DB7B00EA6066 /* Punch.swift */; };
@@ -35,7 +34,6 @@
 		A1560F521B40CCD800402354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1560F571B40CCD800402354 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A1560F591B40CCD800402354 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		A1560F5C1B40CCD800402354 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A163F27D1B44BB7800DC8CCE /* Charge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Charge.swift; sourceTree = "<group>"; };
 		A16CC3181B52C8AD00EA6066 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		A16CC31A1B52DB7B00EA6066 /* Punch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Punch.swift; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 				A16CC31A1B52DB7B00EA6066 /* Punch.swift */,
 				A16CC31B1B52DB7B00EA6066 /* PunchCell.swift */,
 				A1560F591B40CCD800402354 /* Images.xcassets */,
-				A1560F5B1B40CCD800402354 /* LaunchScreen.xib */,
 				A1560F501B40CCD800402354 /* Supporting Files */,
 			);
 			path = member;
@@ -186,7 +183,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1560F581B40CCD800402354 /* Main.storyboard in Resources */,
-				A1560F5D1B40CCD800402354 /* LaunchScreen.xib in Resources */,
 				A1560F5A1B40CCD800402354 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,14 +250,6 @@
 				A1560F571B40CCD800402354 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		A1560F5B1B40CCD800402354 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A1560F5C1B40CCD800402354 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

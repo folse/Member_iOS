@@ -44,7 +44,7 @@ class Member: UITableViewController {
         let vaild_quantity = member["vaild_quantity"] as! Int
         
         cell.textLabel?.text = member["username"] as? String
-        cell.detailTextLabel?.text = "vaild quantity:\(vaild_quantity)"
+        cell.detailTextLabel?.text = "Köpt : \(vaild_quantity)"
         
         cell.textLabel?.font = UIFont.systemFontOfSize(28)
         cell.detailTextLabel?.font = UIFont.systemFontOfSize(22)

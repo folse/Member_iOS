@@ -11,6 +11,8 @@ import UIKit
 let API_ROOT = "http://member.mtscandic.com/api/"
 //let API_ROOT = "http://localhost/api/"
 
+let APP_COLOR = UIColor(red: 252/255.0, green: 138/255.0, blue: 60/255.0, alpha: 1.0)
+
 @UIApplicationMain
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,7 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().barTintColor = APP_COLOR
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        
+        application.statusBarHidden = false
+        application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true); 
+        
         return true
     }
 

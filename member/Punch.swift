@@ -25,10 +25,10 @@ class Punch: UICollectionViewController {
     
     @IBAction func punchResetButtonAction(sender: AnyObject) {
         
-        let alertController = UIAlertController(title: "Are you sure to reset?", message:
+        let alertController = UIAlertController(title: "Är du säker?", message:
             "", preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "NO", style: UIAlertActionStyle.Default,handler:nil))
-        alertController.addAction(UIAlertAction(title: "YES", style: UIAlertActionStyle.Default,handler: {
+        alertController.addAction(UIAlertAction(title: "Nej", style: UIAlertActionStyle.Default,handler:nil))
+        alertController.addAction(UIAlertAction(title: "Ja", style: UIAlertActionStyle.Default,handler: {
             
             (action: UIAlertAction!) in
             self.punch(self.customerUsername,isReset:true)
@@ -101,7 +101,7 @@ class Punch: UICollectionViewController {
                     let message = responseDict["msg"] as! String
                     
                     let alert = UIAlertView()
-                    alert.title = "Faild"
+                    alert.title = "Denna operation kan inte slutföras"
                     alert.message = message
                     alert.addButtonWithTitle("OK")
                     alert.show()
@@ -113,8 +113,8 @@ class Punch: UICollectionViewController {
                 indicator.stopAnimating()
                 
                 let alert = UIAlertView()
-                alert.title = "Faild"
-                alert.message = error.localizedDescription
+                alert.title = "Denna operation kan inte slutföras"
+                alert.message = "Försök igen eller kontakta vår kundtjänst. För bättre och snabbare service, rekommenderar vi att du skickar oss en skärmdump." + error.localizedDescription + "\(error.code)"
                 alert.addButtonWithTitle("OK")
                 alert.show()
         })

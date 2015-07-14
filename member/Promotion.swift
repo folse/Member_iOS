@@ -70,7 +70,7 @@ class Promotion: UIViewController {
                     let message = responseDict["msg"] as! String
                     
                     let alert = UIAlertView()
-                    alert.title = "Faild"
+                    alert.title = "Denna operation kan inte slutföras"
                     alert.message = message
                     alert.addButtonWithTitle("OK")
                     alert.show()
@@ -82,8 +82,8 @@ class Promotion: UIViewController {
                 indicator.stopAnimating()
                 
                 let alert = UIAlertView()
-                alert.title = "Faild"
-                alert.message = error.localizedDescription
+                alert.title = "Denna operation kan inte slutföras"
+                alert.message = "Försök igen eller kontakta vår kundtjänst. För bättre och snabbare service, rekommenderar vi att du skickar oss en skärmdump." + error.localizedDescription + "\(error.code)"
                 alert.addButtonWithTitle("OK")
                 alert.show()
         })

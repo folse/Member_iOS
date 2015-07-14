@@ -38,7 +38,14 @@ class Signup: UITableViewController {
     
     @IBAction func DoneButtonAction(sender: UIBarButtonItem) {
         
-        registerCustomer(phoneTextField.text, realName: realNameTextField.text, quantity:quantityTextField.text)
+        if quantityTextField.text.length == 0 {
+            
+            registerCustomer(phoneTextField.text, realName: realNameTextField.text, quantity:"0")
+            
+        }else{
+            
+            registerCustomer(phoneTextField.text, realName: realNameTextField.text, quantity:quantityTextField.text)
+        }
     }
     
     func registerCustomer(username:String,realName:String,quantity:String) {
@@ -93,7 +100,7 @@ class Signup: UITableViewController {
                     let message = responseDict["msg"] as! String
                     
                     let alert = UIAlertView()
-                    alert.title = "Faild"
+                    alert.title = "Denna operation kan inte slutföras"
                     alert.message = message
                     alert.addButtonWithTitle("OK")
                     alert.show()
@@ -105,8 +112,8 @@ class Signup: UITableViewController {
                 indicator.stopAnimating()
                 
                 let alert = UIAlertView()
-                alert.title = "Faild"
-                alert.message = error.localizedDescription
+                alert.title = "Denna operation kan inte slutföras"
+                alert.message = "Försök igen eller kontakta vår kundtjänst. För bättre och snabbare service, rekommenderar vi att du skickar oss en skärmdump." + error.localizedDescription + "\(error.code)"
                 alert.addButtonWithTitle("OK")
                 alert.show()
         })
@@ -122,7 +129,7 @@ class Signup: UITableViewController {
             var segue = segue.destinationViewController as! Trade
             segue.customerUsername = phoneTextField.text
             segue.vaildQuantity = quantityTextField.text
-            segue.usedQuantity = "0"
+            segue.punchedQuantity = "0"
         }
     }
 }

@@ -89,7 +89,7 @@ class Signup: UITableViewController {
                     
                     let alert = UIAlertView()
                     alert.title = "Success"
-                    alert.message = "Now you have a new member"
+                    alert.message = "Nu har du en ny medlem"
                     alert.addButtonWithTitle("OK")
                     alert.show()
                     

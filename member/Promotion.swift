@@ -60,7 +60,7 @@ class Promotion: UIViewController {
                 if respCode == "0000" {
                     
                     let alert = UIAlertView()
-                    alert.title = "Success"
+                    alert.title = "Fungerar lyckat"
                     alert.message = ""
                     alert.addButtonWithTitle("OK")
                     alert.show()

@@ -27,6 +27,8 @@ class Login: UITableViewController {
     
     @IBAction func loginButtonAction(sender: UIBarButtonItem) {
         
+        self.view.endEditing(true)
+        
         login(emailTextField.text, password: passwordTextField.text)
         
     }

@@ -70,7 +70,7 @@ class Charge: UITableViewController {
                     if responseCode == "0000"{
                     
                         let alert = UIAlertView()
-                        alert.title = "Success"
+                        alert.title = "Fungerar lyckat"
                         alert.message = ""
                         alert.addButtonWithTitle("OK")
                         alert.show()

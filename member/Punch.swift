@@ -21,6 +21,7 @@ class Punch: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Stämplat " + "\(punchedQuantity)" + "/20"
     }
     
     @IBAction func punchResetButtonAction(sender: AnyObject) {
@@ -90,11 +91,17 @@ class Punch: UICollectionViewController {
                     
                     self.collectionView?.reloadData()
                     
-                    let alert = UIAlertView()
-                    alert.title = "Success"
-                    alert.message = ""
-                    alert.addButtonWithTitle("OK")
-                    alert.show()
+                    self.title = "Stämplat " + "\(self.punchedQuantity)" + "/20"
+                    
+                    let alertController = UIAlertController(title: "Fungerar lyckat", message:
+                        "", preferredStyle: UIAlertControllerStyle.Alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: {
+                        
+                        (action: UIAlertAction!) in
+                        self.navigationController?.popToRootViewControllerAnimated(true)
+                        
+                    }))
+                    self.presentViewController(alertController, animated:true, completion: nil)
                     
                 }else {
                     

@@ -88,7 +88,7 @@ class Signup: UITableViewController {
                 if responseCode == "0000" {
                     
                     let alert = UIAlertView()
-                    alert.title = "Success"
+                    alert.title = "Fungerar lyckat"
                     alert.message = "Nu har du en ny medlem"
                     alert.addButtonWithTitle("OK")
                     alert.show()

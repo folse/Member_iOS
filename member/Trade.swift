@@ -18,12 +18,17 @@ class Trade: UITableViewController {
     
     @IBOutlet weak var quantityTextField: UITextField!
     
-    @IBOutlet weak var vaildAndPunchedQuantityLabel: UILabel!
+    @IBOutlet weak var vaildQuantityLabel: UILabel!
+    @IBOutlet weak var punchedQuantityLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        vaildAndPunchedQuantityLabel.text = vaildQuantity + " / " + punchedQuantity
+        vaildQuantityLabel.text = vaildQuantity
+        punchedQuantityLabel.text = punchedQuantity
+    }
+    
+    func updateData(){
         
     }
     
@@ -87,11 +92,12 @@ class Trade: UITableViewController {
                     
                     self.vaildQuantity  = "\(vaildQuantityInt)"
                     
-                    self.vaildAndPunchedQuantityLabel.text = self.vaildQuantity + " / " + self.punchedQuantity
+                    self.vaildQuantityLabel.text = self.vaildQuantity
+                    self.punchedQuantityLabel.text = self.punchedQuantity
                     
                     self.view.endEditing(true)
                     
-                    let alertController = UIAlertController(title: "Success", message:
+                    let alertController = UIAlertController(title: "Fungerar lyckat", message:
                         "", preferredStyle: UIAlertControllerStyle.Alert)
                     alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: {
                     

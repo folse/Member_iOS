@@ -26,12 +26,19 @@ class Trade: UITableViewController {
         
         vaildQuantityLabel.text = vaildQuantity
         punchedQuantityLabel.text = punchedQuantity
-    }
-    
-    func updateData(){
         
+        NSNotificationCenter.defaultCenter().addObserverForName("updatePunchedQuantity", object:nil, queue:NSOperationQueue.mainQueue(), usingBlock:{notification in
+            
+            let newPunchedQuantity = notification.object as! Int
+            
+            println(newPunchedQuantity)
+            
+            self.punchedQuantity = "\(newPunchedQuantity)"
+            
+            self.punchedQuantityLabel.text = self.punchedQuantity
+        })
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -51,11 +58,7 @@ class Trade: UITableViewController {
     
     func trade(username:String,quantity:String) {
         
-        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
-        indicator.center = view.center
-        view.addSubview(indicator)
-        indicator.startAnimating()
-        
+        var indicator = WIndicator.showIndicatorAddedTo(self.view, animation: true)
         
         let manager = AFHTTPRequestOperationManager()
         manager.responseSerializer.acceptableContentTypes = NSSet().setByAddingObject("text/html")
@@ -79,7 +82,7 @@ class Trade: UITableViewController {
                 
                 println(responseObject.description)
                 
-                indicator.stopAnimating()
+                WIndicator.removeIndicatorFrom(self.view, animation: true)
                 
                 let responseDict = responseObject as! Dictionary<String,AnyObject>
                 let responseCode = responseDict["resp"] as! String
@@ -97,15 +100,9 @@ class Trade: UITableViewController {
                     
                     self.view.endEditing(true)
                     
-                    let alertController = UIAlertController(title: "Fungerar lyckat", message:
-                        "", preferredStyle: UIAlertControllerStyle.Alert)
-                    alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: {
+                    var indicator = WIndicator.showSuccessInView(self.view, text:"      ", timeOut:1)
                     
-                            (action: UIAlertAction!) in
-                        self.navigationController?.popToRootViewControllerAnimated(true)
-                    
-                    }))
-                    self.presentViewController(alertController, animated:true, completion: nil)
+                    var timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "dismissView", userInfo: nil, repeats: false)
                     
                 }else {
                     
@@ -121,7 +118,7 @@ class Trade: UITableViewController {
             failure: { (operation: AFHTTPRequestOperation!,
                 error: NSError!) in
                 
-                indicator.stopAnimating()
+                WIndicator.removeIndicatorFrom(self.view, animation: true)
                 
                 let alert = UIAlertView()
                 alert.title = "Denna operation kan inte slutföras"
@@ -130,7 +127,11 @@ class Trade: UITableViewController {
                 alert.show()
         })
     }
-        
+
+    func dismissView() {
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -143,7 +144,6 @@ class Trade: UITableViewController {
             segue.customerUsername = self.customerUsername
         }
     }
-    
 }
 
 extension String {

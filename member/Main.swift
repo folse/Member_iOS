@@ -18,6 +18,12 @@ class Main: UITableViewController {
 
     @IBOutlet weak var phoneTextField: UITextField!
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        phoneTextField.text = ""
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,10 +43,7 @@ class Main: UITableViewController {
     
     func getCustomerInfo(username:String) {
         
-        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
-        indicator.center = view.center
-        view.addSubview(indicator)
-        indicator.startAnimating()
+        var indicator = WIndicator.showIndicatorAddedTo(self.view, animation: true)
         
         let manager = AFHTTPRequestOperationManager()
         manager.responseSerializer.acceptableContentTypes = NSSet().setByAddingObject("text/html")
@@ -61,7 +64,7 @@ class Main: UITableViewController {
                 
                 println(responseObject.description)
                 
-                indicator.stopAnimating()
+                WIndicator.removeIndicatorFrom(self.view, animation: true)
                 
                 let responseDict = responseObject as! Dictionary<String,AnyObject>
                 
@@ -95,7 +98,7 @@ class Main: UITableViewController {
             failure: { (operation: AFHTTPRequestOperation!,
                 error: NSError!) in
                 
-                indicator.stopAnimating()
+                WIndicator.removeIndicatorFrom(self.view, animation: true)
                 
                 let alert = UIAlertView()
                 alert.title = "Denna operation kan inte slutföras"

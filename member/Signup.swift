@@ -50,10 +50,7 @@ class Signup: UITableViewController {
     
     func registerCustomer(username:String,realName:String,quantity:String) {
         
-        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
-        indicator.center = view.center
-        view.addSubview(indicator)
-        indicator.startAnimating()
+        var indicator = WIndicator.showIndicatorAddedTo(self.view, animation: true)
         
         let manager = AFHTTPRequestOperationManager()
         manager.responseSerializer.acceptableContentTypes = NSSet().setByAddingObject("text/html")
@@ -79,7 +76,7 @@ class Signup: UITableViewController {
                                 
                 println(responseObject.description)
                 
-                indicator.stopAnimating()
+                WIndicator.removeIndicatorFrom(self.view, animation: true)
                 
                 let responseDict = responseObject as! Dictionary<String,AnyObject>
                 
@@ -87,13 +84,9 @@ class Signup: UITableViewController {
                 
                 if responseCode == "0000" {
                     
-                    let alert = UIAlertView()
-                    alert.title = "Fungerar lyckat"
-                    alert.message = "Nu har du en ny medlem"
-                    alert.addButtonWithTitle("OK")
-                    alert.show()
+                    var indicator = WIndicator.showSuccessInView(self.view, text:"      ", timeOut:1)
                     
-                    self.performSegueWithIdentifier("trade", sender: self)
+                    var timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "nextPage", userInfo: nil, repeats: false)
                     
                 }else {
                     
@@ -109,7 +102,7 @@ class Signup: UITableViewController {
             failure: { (operation: AFHTTPRequestOperation!,
                 error: NSError!) in
        
-                indicator.stopAnimating()
+                WIndicator.removeIndicatorFrom(self.view, animation: true)
                 
                 let alert = UIAlertView()
                 alert.title = "Denna operation kan inte slutföras"
@@ -118,7 +111,11 @@ class Signup: UITableViewController {
                 alert.show()
         })
     }
-           
+    
+    func nextPage() {
+        self.performSegueWithIdentifier("trade", sender: self)
+    }
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation

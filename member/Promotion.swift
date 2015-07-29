@@ -13,13 +13,13 @@ class Promotion: UIViewController {
     var promotionString : String = ""
     
     @IBOutlet weak var promotionTextView: UITextView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.promotionTextView.text = promotionString
     }
-
+    
     @IBAction func saveButtonAction(sender: AnyObject) {
         
         update_promotion(self.promotionTextView.text)
@@ -27,10 +27,7 @@ class Promotion: UIViewController {
     
     func update_promotion(promotion:String) {
         
-        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
-        indicator.center = view.center
-        view.addSubview(indicator)
-        indicator.startAnimating()
+        var indicator = WIndicator.showIndicatorAddedTo(self.view, animation: true)
         
         let manager = AFHTTPRequestOperationManager()
         manager.responseSerializer.acceptableContentTypes = NSSet().setByAddingObject("text/html")
@@ -41,7 +38,7 @@ class Promotion: UIViewController {
         let shopId : String = NSUserDefaults.standardUserDefaults().objectForKey("shopId") as! String
         
         let params:NSDictionary = ["shop_id":shopId,
-                                   "promotion":promotion]
+            "promotion":promotion]
         
         println(params)
         manager.GET(url,
@@ -51,7 +48,7 @@ class Promotion: UIViewController {
                 
                 println(responseObject.description)
                 
-                indicator.stopAnimating()
+                WIndicator.removeIndicatorFrom(self.view, animation: true)
                 
                 let responseDict = responseObject as! Dictionary<String,AnyObject>
                 
@@ -59,11 +56,9 @@ class Promotion: UIViewController {
                 
                 if respCode == "0000" {
                     
-                    let alert = UIAlertView()
-                    alert.title = "Fungerar lyckat"
-                    alert.message = ""
-                    alert.addButtonWithTitle("OK")
-                    alert.show()
+                    var indicator = WIndicator.showSuccessInView(self.view, text:"      ", timeOut:1)
+                    
+                    var timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "dismissView", userInfo: nil, repeats: false)
                     
                 }else {
                     
@@ -79,7 +74,7 @@ class Promotion: UIViewController {
             failure: { (operation: AFHTTPRequestOperation!,
                 error: NSError!) in
                 
-                indicator.stopAnimating()
+                WIndicator.removeIndicatorFrom(self.view, animation: true)
                 
                 let alert = UIAlertView()
                 alert.title = "Denna operation kan inte slutföras"
@@ -89,20 +84,24 @@ class Promotion: UIViewController {
         })
     }
     
+    func dismissView() {
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

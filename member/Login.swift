@@ -35,11 +35,7 @@ class Login: UITableViewController {
     
     func login(username:String,password:String) {
         
-        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
-        indicator.center = view.center
-        view.addSubview(indicator)
-        indicator.startAnimating()
-        
+        var indicator = WIndicator.showIndicatorAddedTo(self.view, animation: true)
         
         let manager = AFHTTPRequestOperationManager()
         manager.responseSerializer.acceptableContentTypes = NSSet().setByAddingObject("text/html")
@@ -56,7 +52,7 @@ class Login: UITableViewController {
                 
                 println(responseObject.description)
                 
-                indicator.stopAnimating()
+                WIndicator.removeIndicatorFrom(self.view, animation: true)
                 
                 let responseDict = responseObject as! Dictionary<String,AnyObject>
                 let responseCode = responseDict["resp"] as! String
@@ -85,7 +81,7 @@ class Login: UITableViewController {
             failure: { (operation: AFHTTPRequestOperation!,
                 error: NSError!) in
                 
-                indicator.stopAnimating()
+                WIndicator.removeIndicatorFrom(self.view, animation: true)
                 
                 let alert = UIAlertView()
                 alert.title = "Denna operation kan inte slutföras"

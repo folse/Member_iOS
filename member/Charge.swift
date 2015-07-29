@@ -36,11 +36,7 @@ class Charge: UITableViewController {
         
         func charge(username:String,quantity:String) {
             
-            let indicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
-            indicator.center = view.center
-            view.addSubview(indicator)
-            indicator.startAnimating()
-            
+            var indicator = WIndicator.showIndicatorAddedTo(self.view, animation: true)
             
             let manager = AFHTTPRequestOperationManager()
             manager.responseSerializer.acceptableContentTypes = NSSet().setByAddingObject("text/html")
@@ -63,19 +59,15 @@ class Charge: UITableViewController {
                     
                     println(responseObject.description)
                     
-                    indicator.stopAnimating()
+                    WIndicator.removeIndicatorFrom(self.view, animation: true)
                     
                     let responseDict = responseObject as! Dictionary<String,AnyObject>
                     let responseCode = responseDict["resp"] as! String
                     if responseCode == "0000"{
-                    
-                        let alert = UIAlertView()
-                        alert.title = "Fungerar lyckat"
-                        alert.message = ""
-                        alert.addButtonWithTitle("OK")
-                        alert.show()
-                    
-                        self.navigationController?.popViewControllerAnimated(true)
+                        
+                        var indicator = WIndicator.showSuccessInView(self.view, text:"      ", timeOut:1)
+                        
+                        var timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "dismissView", userInfo: nil, repeats: false)
                         
                     }else {
                         
@@ -91,7 +83,7 @@ class Charge: UITableViewController {
                 failure: { (operation: AFHTTPRequestOperation!,
                     error: NSError!) in
                     
-                    indicator.stopAnimating()
+                    WIndicator.removeIndicatorFrom(self.view, animation: true)
                     
                     let alert = UIAlertView()
                     alert.title = "Denna operation kan inte slutföras"
@@ -100,7 +92,11 @@ class Charge: UITableViewController {
                     alert.show()
             })
         }
-           
+    
+        func dismissView() {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+    
         /*
         // MARK: - Navigation
         

@@ -397,7 +397,7 @@
                             <tableViewSection id="qIT-Xz-1eD">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="70" id="wu2-we-nnb">
-                                        <rect key="frame" x="0.0" y="64" width="320" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wu2-we-nnb" id="hvd-H0-OA0">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
@@ -413,7 +413,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="70" id="Oue-dr-aZZ">
-                                        <rect key="frame" x="0.0" y="134" width="320" height="70"/>
+                                        <rect key="frame" x="0.0" y="70" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Oue-dr-aZZ" id="ZnP-EK-iWA">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
@@ -576,7 +576,7 @@
             </objects>
             <point key="canvasLocation" x="811" y="-1814"/>
         </scene>
-        <!--Stämplat-->
+        <!--Poäng-->
         <scene sceneID="5tG-aT-MNt">
             <objects>
                 <collectionViewController id="UtU-s0-m7w" customClass="Punch" customModule="member" customModuleProvider="target" sceneMemberID="viewController">
@@ -611,7 +611,7 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ka7-5o-dti">
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="ka7-5o-dti">
                             <rect key="frame" x="0.0" y="64" width="320" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </collectionReusableView>
@@ -620,10 +620,10 @@
                             <outlet property="delegate" destination="UtU-s0-m7w" id="4DO-HV-fkG"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Stämplat" id="Okn-1e-ZhO">
-                        <barButtonItem key="rightBarButtonItem" title="Starta om" id="19k-3l-vDQ">
+                    <navigationItem key="navigationItem" title="Poäng" id="Okn-1e-ZhO">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="19k-3l-vDQ">
                             <connections>
-                                <action selector="punchResetButtonAction:" destination="UtU-s0-m7w" id="HhL-Hc-rr8"/>
+                                <action selector="saveButtonAction:" destination="UtU-s0-m7w" id="lwu-bM-Ydv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -642,7 +642,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="0cW-sq-zg4" detailTextLabel="BxB-i0-Svg" rowHeight="74" style="IBUITableViewCellStyleSubtitle" id="tyd-Pb-yc5">
-                                <rect key="frame" x="0.0" y="86" width="320" height="74"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="74"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tyd-Pb-yc5" id="cVh-eQ-Wd9">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
@@ -697,7 +697,7 @@
                             <tableViewSection id="xXy-jv-SW0">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="70" id="Jh6-Jj-BLy">
-                                        <rect key="frame" x="0.0" y="84" width="320" height="70"/>
+                                        <rect key="frame" x="0.0" y="20" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jh6-Jj-BLy" id="ezU-uT-c8K">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
@@ -714,7 +714,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="70" id="bhC-th-4Gj">
-                                        <rect key="frame" x="0.0" y="154" width="320" height="70"/>
+                                        <rect key="frame" x="0.0" y="90" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bhC-th-4Gj" id="0ki-d8-D6L">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="69"/>
@@ -741,7 +741,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="70" id="3r8-YK-q6R">
-                                        <rect key="frame" x="0.0" y="224" width="320" height="70"/>
+                                        <rect key="frame" x="0.0" y="160" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3r8-YK-q6R" id="Dhq-Kg-zhZ">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="69"/>

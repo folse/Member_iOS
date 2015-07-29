@@ -18,13 +18,35 @@ class Punch: UICollectionViewController {
     var punchedImage = UIImage(named: "logo")
     var grayImage = UIImage(named: "logo_gray")
     
+    override func viewWillDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().postNotificationName("updatePunchedQuantity", object: punchedQuantity)
+        super.viewWillDisappear(animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Stämplat " + "\(punchedQuantity)" + "/20"
+        self.title = "Poäng " + "\(punchedQuantity)" + "/20"
+        
+        if punchedQuantity == 20{
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Starta om", style: UIBarButtonItemStyle.Done, target:self, action: Selector(punchReset()))
+        }
     }
     
-    @IBAction func punchResetButtonAction(sender: AnyObject) {
+    @IBAction func saveButtonAction(sender: AnyObject) {
+        
+        var controllerArray : Array<AnyObject>! = self.navigationController?.viewControllers
+        
+        let lastControllerId : Int = controllerArray.count - 2
+        
+        controllerArray.removeAtIndex(lastControllerId)
+        
+        self.navigationController?.viewControllers = controllerArray;
+        
+        self.navigationController?.popViewControllerAnimated(false)
+    }
+    
+    func punchReset() {
         
         let alertController = UIAlertController(title: "Är du säker?", message:
             "", preferredStyle: UIAlertControllerStyle.Alert)
@@ -41,10 +63,7 @@ class Punch: UICollectionViewController {
     
     func punch(username:String, isReset:Bool) {
         
-        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
-        indicator.center = view.center
-        view.addSubview(indicator)
-        indicator.startAnimating()
+        var indicator = WIndicator.showIndicatorAddedTo(self.view, animation: true)
         
         let manager = AFHTTPRequestOperationManager()
         manager.responseSerializer.acceptableContentTypes = NSSet().setByAddingObject("text/html")
@@ -72,7 +91,7 @@ class Punch: UICollectionViewController {
                 
                 println(responseObject.description)
                 
-                indicator.stopAnimating()
+                WIndicator.removeIndicatorFrom(self.view, animation: true)
                 
                 let responseDict = responseObject as! Dictionary<String,AnyObject>
                 
@@ -93,16 +112,6 @@ class Punch: UICollectionViewController {
                     
                     self.title = "Stämplat " + "\(self.punchedQuantity)" + "/20"
                     
-                    let alertController = UIAlertController(title: "Fungerar lyckat", message:
-                        "", preferredStyle: UIAlertControllerStyle.Alert)
-                    alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: {
-                        
-                        (action: UIAlertAction!) in
-                        self.navigationController?.popToRootViewControllerAnimated(true)
-                        
-                    }))
-                    self.presentViewController(alertController, animated:true, completion: nil)
-                    
                 }else {
                     
                     let message = responseDict["msg"] as! String
@@ -117,7 +126,7 @@ class Punch: UICollectionViewController {
             failure: { (operation: AFHTTPRequestOperation!,
                 error: NSError!) in
                 
-                indicator.stopAnimating()
+                WIndicator.removeIndicatorFrom(self.view, animation: true)
                 
                 let alert = UIAlertView()
                 alert.title = "Denna operation kan inte slutföras"

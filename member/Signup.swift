@@ -14,7 +14,7 @@ class Signup: UITableViewController {
     @IBOutlet weak var phoneTextField: UITextField!
     
     @IBOutlet weak var realNameTextField: UITextField!
-
+    
     @IBOutlet weak var quantityTextField: UITextField!
     
     override func viewDidAppear(animated: Bool) {
@@ -37,14 +37,19 @@ class Signup: UITableViewController {
     }
     
     @IBAction func DoneButtonAction(sender: UIBarButtonItem) {
-        
-        if quantityTextField.text.length == 0 {
+
+        if phoneTextField.text.length != 0 && realNameTextField.text.length != 0 {
             
-            registerCustomer(phoneTextField.text, realName: realNameTextField.text, quantity:"0")
+            self.view.endEditing(true)
             
-        }else{
-            
-            registerCustomer(phoneTextField.text, realName: realNameTextField.text, quantity:quantityTextField.text)
+            if quantityTextField.text.length == 0 {
+                
+                registerCustomer(phoneTextField.text, realName: realNameTextField.text, quantity:"0")
+                
+            }else{
+                
+                registerCustomer(phoneTextField.text, realName: realNameTextField.text, quantity:quantityTextField.text)
+            }
         }
     }
     
@@ -61,11 +66,11 @@ class Signup: UITableViewController {
         let shopId : String = NSUserDefaults.standardUserDefaults().objectForKey("shopId") as! String
         
         let params:NSDictionary = ["customer_username":username,
-                                   "real_name":realName,
-                                   "shop_id":shopId,
-                                   "phone":username,
-                                   "email":"",
-                                   "quantity":quantity]
+            "real_name":realName,
+            "shop_id":shopId,
+            "phone":username,
+            "email":"",
+            "quantity":quantity]
         
         println(params)
         
@@ -73,7 +78,7 @@ class Signup: UITableViewController {
             parameters: params as [NSObject : AnyObject],
             success: { (operation: AFHTTPRequestOperation!,
                 responseObject: AnyObject!) in
-                                
+                
                 println(responseObject.description)
                 
                 WIndicator.removeIndicatorFrom(self.view, animation: true)
@@ -101,7 +106,7 @@ class Signup: UITableViewController {
             },
             failure: { (operation: AFHTTPRequestOperation!,
                 error: NSError!) in
-       
+                
                 WIndicator.removeIndicatorFrom(self.view, animation: true)
                 
                 let alert = UIAlertView()
@@ -124,8 +129,15 @@ class Signup: UITableViewController {
         if segue.identifier == "trade"{
             
             var segue = segue.destinationViewController as! Trade
+            segue.realName = realNameTextField.text
             segue.customerUsername = phoneTextField.text
-            segue.vaildQuantity = quantityTextField.text
+            
+            if quantityTextField.text.length > 0 {
+                segue.vaildQuantity = quantityTextField.text
+            }else{
+                segue.vaildQuantity = "0"
+            }
+            
             segue.punchedQuantity = "0"
         }
     }

@@ -61,7 +61,10 @@ class Login: UITableViewController {
                     
                     let shopId = responseDict["shop_id"] as! String
                     
+                    let shopName = responseDict["shop_name"] as? String
+                    
                     NSUserDefaults.standardUserDefaults().setObject(shopId, forKey: "shopId")
+                    NSUserDefaults.standardUserDefaults().setObject(shopName, forKey: "shopName")
                     
                     NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isLogined")
                     

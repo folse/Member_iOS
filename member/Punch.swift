@@ -46,6 +46,11 @@ class Punch: UICollectionViewController {
         self.navigationController?.popViewControllerAnimated(false)
     }
     
+    @IBAction func resetButtonAction(sender: AnyObject) {
+        
+        punchReset()
+    }
+    
     func punchReset() {
         
         let alertController = UIAlertController(title: "Är du säker?", message:

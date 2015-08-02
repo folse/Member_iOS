@@ -17,7 +17,67 @@ class Promotion: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.promotionTextView.text = promotionString
+        getMerchantInfo()
+    }
+    
+    func getMerchantInfo() {
+        
+        var indicator = WIndicator.showIndicatorAddedTo(self.view, animation: true)
+        
+        let manager = AFHTTPRequestOperationManager()
+        manager.responseSerializer.acceptableContentTypes = NSSet().setByAddingObject("text/html")
+        
+        let url = API_ROOT + "shop"
+        println(url)
+        
+        let shopId : String = NSUserDefaults.standardUserDefaults().objectForKey("shopId") as! String
+        
+        let params:NSDictionary = ["shop_id":shopId]
+        
+        println(params)
+        manager.GET(url,
+            parameters: params as [NSObject : AnyObject],
+            success: { (operation: AFHTTPRequestOperation!,
+                responseObject: AnyObject!) in
+                
+                println(responseObject.description)
+                
+                WIndicator.removeIndicatorFrom(self.view, animation: true)
+                
+                let responseDict = responseObject as! Dictionary<String,AnyObject>
+                
+                let respCode = responseDict["resp"] as! String
+                
+                if respCode == "0000" {
+                    
+                    let data = responseObject["data"] as! Dictionary<String,AnyObject>
+                    
+                    var promotion = data["promotion"] as! String
+                    
+                    self.promotionTextView.text = promotion
+                    
+                }else {
+                    
+                    let message = responseDict["msg"] as! String
+                    
+                    let alert = UIAlertView()
+                    alert.title = "Denna operation kan inte slutföras"
+                    alert.message = message
+                    alert.addButtonWithTitle("OK")
+                    alert.show()
+                }
+            },
+            failure: { (operation: AFHTTPRequestOperation!,
+                error: NSError!) in
+                
+                WIndicator.removeIndicatorFrom(self.view, animation: true)
+                
+                let alert = UIAlertView()
+                alert.title = "Denna operation kan inte slutföras"
+                alert.message = "Försök igen eller kontakta vår kundtjänst. För bättre och snabbare service, rekommenderar vi att du skickar oss en skärmdump." + error.localizedDescription + "\(error.code)"
+                alert.addButtonWithTitle("OK")
+                alert.show()
+        })
     }
     
     @IBAction func saveButtonAction(sender: AnyObject) {

@@ -13,15 +13,13 @@ class Charge: UITableViewController {
         var chargeQuantity : String = ""
     
         var customerUsername : String = ""
-    
-        @IBOutlet weak var phoneTextField: UITextField!
 
         @IBOutlet weak var quantityTextField: UITextField!
     
         override func viewDidLoad() {
             super.viewDidLoad()
             
-            phoneTextField.becomeFirstResponder()
+            quantityTextField.becomeFirstResponder()
         }
         
         override func didReceiveMemoryWarning() {
@@ -31,7 +29,9 @@ class Charge: UITableViewController {
     
         @IBAction func doneButtonAction(sender: UIBarButtonItem) {
             
-            charge(phoneTextField.text, quantity : quantityTextField.text)
+            self.view.endEditing(true)
+            
+            charge(customerUsername, quantity : quantityTextField.text)
         }
         
         func charge(username:String,quantity:String) {
@@ -94,7 +94,16 @@ class Charge: UITableViewController {
         }
     
         func dismissView() {
-            self.navigationController?.popViewControllerAnimated(true)
+            
+            var controllerArray : Array<AnyObject>! = self.navigationController?.viewControllers
+            
+            let lastControllerId : Int = controllerArray.count - 2
+            
+            controllerArray.removeAtIndex(lastControllerId)
+            
+            self.navigationController?.viewControllers = controllerArray;
+            
+            self.navigationController?.popViewControllerAnimated(false)
         }
     
         /*

@@ -10,20 +10,26 @@ import UIKit
 
 class Trade: UITableViewController {
     
+    var realName : String = ""
+    
     var vaildQuantity : String = ""
     
     var punchedQuantity : String = ""
     
     var customerUsername : String = ""
     
+    @IBOutlet weak var realNameLabel: UILabel!
+    
     @IBOutlet weak var quantityTextField: UITextField!
     
     @IBOutlet weak var vaildQuantityLabel: UILabel!
+    
     @IBOutlet weak var punchedQuantityLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        realNameLabel.text = realName
         vaildQuantityLabel.text = vaildQuantity
         punchedQuantityLabel.text = punchedQuantity
         
@@ -38,7 +44,7 @@ class Trade: UITableViewController {
             self.punchedQuantityLabel.text = self.punchedQuantity
         })
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -62,16 +68,16 @@ class Trade: UITableViewController {
         
         let manager = AFHTTPRequestOperationManager()
         manager.responseSerializer.acceptableContentTypes = NSSet().setByAddingObject("text/html")
-
+        
         let url = API_ROOT + "trade_add"
         println(url)
         
         let shopId : String = NSUserDefaults.standardUserDefaults().objectForKey("shopId") as! String
         
         let params:NSDictionary = ["customer_username":username,
-                                    "shop_id":shopId,
-                                    "quantity":quantity,
-                                    "trade_type":"1"]
+            "shop_id":shopId,
+            "quantity":quantity,
+            "trade_type":"1"]
         
         println(params)
         
@@ -127,11 +133,22 @@ class Trade: UITableViewController {
                 alert.show()
         })
     }
-
+    
     func dismissView() {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
-
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        
+        switch indexPath.row {
+            case 6:
+                self.performSegueWithIdentifier("charge", sender: self)
+                break;
+            default:
+                println("")
+        }
+    }
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -141,6 +158,11 @@ class Trade: UITableViewController {
             
             var segue = segue.destinationViewController as! Punch
             segue.punchedQuantity = self.punchedQuantity.toInt()!
+            segue.customerUsername = self.customerUsername
+            
+        }else if segue.identifier == "charge"{
+            
+            var segue = segue.destinationViewController as! Charge
             segue.customerUsername = self.customerUsername
         }
     }

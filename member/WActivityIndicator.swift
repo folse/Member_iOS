@@ -54,7 +54,7 @@ class WActivityIndicator: UIView {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIDeviceOrientationDidChangeNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserverForName(UIDeviceOrientationDidChangeNotification, object:nil, queue:NSOperationQueue.mainQueue(), usingBlock:{notification in
             
-            self.frame =  self.superview!.bounds
+            //self.frame =  self.superview!.bounds
             self.setNeedsDisplay()
         })
         

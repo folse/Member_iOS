@@ -82,6 +82,8 @@ class Promotion: UIViewController {
     
     @IBAction func saveButtonAction(sender: AnyObject) {
         
+        self.view.endEditing(true)
+        
         update_promotion(self.promotionTextView.text)
     }
     

@@ -16,6 +16,8 @@
 		A16CC3191B52C8AD00EA6066 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16CC3181B52C8AD00EA6066 /* Member.swift */; };
 		A16CC31C1B52DB7C00EA6066 /* Punch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16CC31A1B52DB7B00EA6066 /* Punch.swift */; };
 		A16CC31D1B52DB7C00EA6066 /* PunchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16CC31B1B52DB7B00EA6066 /* PunchCell.swift */; };
+		A1BEA9B91B6E501E00767B04 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BEA9B81B6E501E00767B04 /* QRCode.swift */; };
+		A1BEA9BB1B6E61C600767B04 /* MemberList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BEA9BA1B6E61C600767B04 /* MemberList.swift */; };
 		A1C3CFBA1B673BDA00972C24 /* WIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C3CFB61B673BDA00972C24 /* WIndicator.swift */; };
 		A1C3CFBB1B673BDA00972C24 /* WActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C3CFB71B673BDA00972C24 /* WActivityIndicator.swift */; };
 		A1C3CFBC1B673BDA00972C24 /* WIndicatorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C3CFB81B673BDA00972C24 /* WIndicatorText.swift */; };
@@ -40,6 +42,8 @@
 		A16CC3181B52C8AD00EA6066 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		A16CC31A1B52DB7B00EA6066 /* Punch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Punch.swift; sourceTree = "<group>"; };
 		A16CC31B1B52DB7B00EA6066 /* PunchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PunchCell.swift; sourceTree = "<group>"; };
+		A1BEA9B81B6E501E00767B04 /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
+		A1BEA9BA1B6E61C600767B04 /* MemberList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberList.swift; sourceTree = "<group>"; };
 		A1C3CFB61B673BDA00972C24 /* WIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WIndicator.swift; sourceTree = "<group>"; };
 		A1C3CFB71B673BDA00972C24 /* WActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WActivityIndicator.swift; sourceTree = "<group>"; };
 		A1C3CFB81B673BDA00972C24 /* WIndicatorText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WIndicatorText.swift; sourceTree = "<group>"; };
@@ -100,10 +104,12 @@
 				A1C6802E1B440F1E00C0BBDE /* Trade.swift */,
 				A163F27D1B44BB7800DC8CCE /* Charge.swift */,
 				A1C6802A1B440EBA00C0BBDE /* Signup.swift */,
-				A135813C1B51198100919E38 /* Promotion.swift */,
+				A1BEA9B81B6E501E00767B04 /* QRCode.swift */,
 				A16CC3181B52C8AD00EA6066 /* Member.swift */,
+				A1BEA9BA1B6E61C600767B04 /* MemberList.swift */,
 				A16CC31A1B52DB7B00EA6066 /* Punch.swift */,
 				A16CC31B1B52DB7B00EA6066 /* PunchCell.swift */,
+				A135813C1B51198100919E38 /* Promotion.swift */,
 				A1C3CFBE1B673BDD00972C24 /* Vender */,
 				A1560F591B40CCD800402354 /* Images.xcassets */,
 				A1560F501B40CCD800402354 /* Supporting Files */,
@@ -266,6 +272,8 @@
 				A1D1DCA01B4365CF0068FCCF /* Main.swift in Sources */,
 				A1560F531B40CCD800402354 /* AppDelegate.swift in Sources */,
 				A1D1DCA21B4366660068FCCF /* Login.swift in Sources */,
+				A1BEA9B91B6E501E00767B04 /* QRCode.swift in Sources */,
+				A1BEA9BB1B6E61C600767B04 /* MemberList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +386,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "member/Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -395,6 +404,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "member/Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

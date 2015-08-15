@@ -13,6 +13,8 @@ class Charge: UITableViewController {
         var chargeQuantity : String = ""
     
         var customerUsername : String = ""
+    
+        var vaildQuantityInt : Int = 0
 
         @IBOutlet weak var quantityTextField: UITextField!
     
@@ -65,6 +67,10 @@ class Charge: UITableViewController {
                     let responseCode = responseDict["resp"] as! String
                     if responseCode == "0000"{
                         
+                        let data = responseObject["data"] as! Dictionary<String,AnyObject>
+                        
+                        self.vaildQuantityInt = data["vaild_quantity"]  as! Int
+                        
                         var indicator = WIndicator.showSuccessInView(self.view, text:"      ", timeOut:1)
                         
                         var timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "dismissView", userInfo: nil, repeats: false)
@@ -95,15 +101,9 @@ class Charge: UITableViewController {
     
         func dismissView() {
             
-            var controllerArray : Array<AnyObject>! = self.navigationController?.viewControllers
+            NSNotificationCenter.defaultCenter().postNotificationName("updateVaildQuantity", object:self.vaildQuantityInt)
             
-            let lastControllerId : Int = controllerArray.count - 2
-            
-            controllerArray.removeAtIndex(lastControllerId)
-            
-            self.navigationController?.viewControllers = controllerArray;
-            
-            self.navigationController?.popViewControllerAnimated(false)
+            self.navigationController?.popViewControllerAnimated(true)
         }
     
         /*

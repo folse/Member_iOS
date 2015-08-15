@@ -18,8 +18,6 @@ class Trade: UITableViewController {
     
     var customerUsername : String = ""
     
-    @IBOutlet weak var realNameLabel: UILabel!
-    
     @IBOutlet weak var quantityTextField: UITextField!
     
     @IBOutlet weak var vaildQuantityLabel: UILabel!
@@ -29,9 +27,20 @@ class Trade: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        realNameLabel.text = realName
+        self.title = realName
         vaildQuantityLabel.text = vaildQuantity
         punchedQuantityLabel.text = punchedQuantity
+        
+        NSNotificationCenter.defaultCenter().addObserverForName("updateVaildQuantity", object:nil, queue:NSOperationQueue.mainQueue(), usingBlock:{notification in
+            
+            let newVaildQuantity = notification.object as! Int
+            
+            println(newVaildQuantity)
+            
+            self.vaildQuantity = "\(newVaildQuantity)"
+            
+            self.vaildQuantityLabel.text = self.vaildQuantity
+        })
         
         NSNotificationCenter.defaultCenter().addObserverForName("updatePunchedQuantity", object:nil, queue:NSOperationQueue.mainQueue(), usingBlock:{notification in
             
@@ -51,6 +60,8 @@ class Trade: UITableViewController {
     }
     
     @IBAction func memberTradeButtonAction(sender: AnyObject) {
+        
+        self.view.endEditing(true)
         
         if quantityTextField.text.length == 0 {
             
@@ -104,8 +115,6 @@ class Trade: UITableViewController {
                     self.vaildQuantityLabel.text = self.vaildQuantity
                     self.punchedQuantityLabel.text = self.punchedQuantity
                     
-                    self.view.endEditing(true)
-                    
                     var indicator = WIndicator.showSuccessInView(self.view, text:"      ", timeOut:1)
                     
                     var timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "dismissView", userInfo: nil, repeats: false)
@@ -135,18 +144,7 @@ class Trade: UITableViewController {
     }
     
     func dismissView() {
-        self.navigationController?.popToRootViewControllerAnimated(true)
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-        
-        switch indexPath.row {
-            case 6:
-                self.performSegueWithIdentifier("charge", sender: self)
-                break;
-            default:
-                println("")
-        }
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     // MARK: - Navigation

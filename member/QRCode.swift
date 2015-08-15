@@ -70,12 +70,16 @@ class QRCode: UIViewController ,AVCaptureMetadataOutputObjectsDelegate {
         self.session.stopRunning()
         
         println("code is \(stringValue)")
+        
+        self.navigationController?.popViewControllerAnimated(true)
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("afterScanCustomer", object: stringValue)
 
-        var alertView = UIAlertView()
-        alertView.delegate=self
-        alertView.title = ""
-        alertView.message = "\(stringValue)"
-        alertView.addButtonWithTitle("确认")
-        alertView.show()
+//        var alertView = UIAlertView()
+//        alertView.delegate=self
+//        alertView.title = ""
+//        alertView.message = "\(stringValue)"
+//        alertView.addButtonWithTitle("确认")
+//        alertView.show()
     }
 }

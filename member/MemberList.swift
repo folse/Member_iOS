@@ -102,8 +102,6 @@ class MemberList: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
-        
-        println(indexPath.row)
 
         let member : Dictionary = membersArray[indexPath.row] as! Dictionary<String,AnyObject>
         

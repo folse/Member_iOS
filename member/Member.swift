@@ -17,6 +17,8 @@ class Member: UITableViewController {
     var vaildQuantity : String = ""
     
     var punchedQuantity : String = ""
+    
+    var customerUsername : String = ""
 
     @IBOutlet weak var phoneTextField: UITextField!
     
@@ -24,25 +26,41 @@ class Member: UITableViewController {
         super.viewWillDisappear(animated)
         
         phoneTextField.text = ""
+        
+        self.view.endEditing(true)
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        phoneTextField.becomeFirstResponder()
+        var timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "showKeyboard", userInfo: nil, repeats: false)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.tableView.separatorColor = UIColor.clearColor()
+        NSNotificationCenter.defaultCenter().addObserverForName("afterScanCustomer", object:nil, queue:NSOperationQueue.mainQueue(), usingBlock:{notification in
+            
+            self.customerUsername = notification.object as! String
+            
+            self.getCustomerInfo(self.customerUsername)
+            
+            self.view.endEditing(true)
+        })
+    }
+    
+    func showKeyboard(){
+        
+        self.phoneTextField.becomeFirstResponder()
     }
     
     @IBAction func tradeButtonAction(sender: UIBarButtonItem) {
         
         self.view.endEditing(true)
         
-        getCustomerInfo(phoneTextField.text)
+        self.customerUsername = phoneTextField.text
+        
+        getCustomerInfo(self.customerUsername)
     }
     
     func getCustomerInfo(username:String) {
@@ -78,9 +96,7 @@ class Member: UITableViewController {
                     
                     let data = responseObject["data"] as! Dictionary<String,AnyObject>
                     
-                    
                     let realName = data["real_name"] as! String
-//                    let realName = ""
                     let usedQuantityInt = data["used_quantity"]  as! Int
                     let vaildQuantityInt = data["vaild_quantity"]  as! Int
                     let punchedQuantityInt = data["punched_quantity"] as! Int
@@ -209,7 +225,7 @@ class Member: UITableViewController {
             segue.realName = self.realName
             segue.vaildQuantity = self.vaildQuantity
             segue.punchedQuantity = self.punchedQuantity
-            segue.customerUsername = phoneTextField.text
+            segue.customerUsername = self.customerUsername
         }
     }
 }

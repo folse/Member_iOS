@@ -26,6 +26,7 @@
 		A1C6802F1B440F1E00C0BBDE /* Trade.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C6802E1B440F1E00C0BBDE /* Trade.swift */; };
 		A1D1DCA01B4365CF0068FCCF /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D1DC9F1B4365CF0068FCCF /* Main.swift */; };
 		A1D1DCA21B4366660068FCCF /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D1DCA11B4366660068FCCF /* Login.swift */; };
+		A1E7FDF01B82B8EB00BD2ABD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E7FDEF1B82B8EB00BD2ABD /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		A1C6802E1B440F1E00C0BBDE /* Trade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trade.swift; sourceTree = "<group>"; };
 		A1D1DC9F1B4365CF0068FCCF /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		A1D1DCA11B4366660068FCCF /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		A1E7FDEF1B82B8EB00BD2ABD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CA41DBE74A0951A11E141058 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -60,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1E7FDF01B82B8EB00BD2ABD /* MapKit.framework in Frameworks */,
 				761038C23CD5C8B939693762 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,6 +151,7 @@
 		C6BC1953EF190CB4D2494C6E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A1E7FDEF1B82B8EB00BD2ABD /* MapKit.framework */,
 				CA41DBE74A0951A11E141058 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -186,7 +190,12 @@
 				TargetAttributes = {
 					A1560F4C1B40CCD800402354 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = V68CP8VT5Z;
+						DevelopmentTeam = 9779KDPXN6;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};

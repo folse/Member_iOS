@@ -12,6 +12,7 @@
 		A1560F531B40CCD800402354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1560F521B40CCD800402354 /* AppDelegate.swift */; };
 		A1560F581B40CCD800402354 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1560F561B40CCD800402354 /* Main.storyboard */; };
 		A1560F5A1B40CCD800402354 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1560F591B40CCD800402354 /* Images.xcassets */; };
+		A15FFDCB1C130EA40052FC92 /* SMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15FFDCA1C130EA40052FC92 /* SMS.swift */; };
 		A163F27E1B44BB7800DC8CCE /* Charge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163F27D1B44BB7800DC8CCE /* Charge.swift */; };
 		A16CC3191B52C8AD00EA6066 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16CC3181B52C8AD00EA6066 /* Member.swift */; };
 		A16CC31C1B52DB7C00EA6066 /* Punch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16CC31A1B52DB7B00EA6066 /* Punch.swift */; };
@@ -39,6 +40,7 @@
 		A1560F521B40CCD800402354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1560F571B40CCD800402354 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A1560F591B40CCD800402354 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A15FFDCA1C130EA40052FC92 /* SMS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMS.swift; sourceTree = "<group>"; };
 		A163F27D1B44BB7800DC8CCE /* Charge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Charge.swift; sourceTree = "<group>"; };
 		A16CC3181B52C8AD00EA6066 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		A16CC31A1B52DB7B00EA6066 /* Punch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Punch.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				A16CC31A1B52DB7B00EA6066 /* Punch.swift */,
 				A16CC31B1B52DB7B00EA6066 /* PunchCell.swift */,
 				A135813C1B51198100919E38 /* Promotion.swift */,
+				A15FFDCA1C130EA40052FC92 /* SMS.swift */,
 				A1C3CFBE1B673BDD00972C24 /* Vender */,
 				A1560F591B40CCD800402354 /* Images.xcassets */,
 				A1560F501B40CCD800402354 /* Supporting Files */,
@@ -185,6 +188,7 @@
 		A1560F451B40CCD700402354 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Folse;
 				TargetAttributes = {
@@ -193,7 +197,7 @@
 						DevelopmentTeam = 9779KDPXN6;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -282,6 +286,7 @@
 				A1560F531B40CCD800402354 /* AppDelegate.swift in Sources */,
 				A1D1DCA21B4366660068FCCF /* Login.swift in Sources */,
 				A1BEA9B91B6E501E00767B04 /* QRCode.swift in Sources */,
+				A15FFDCB1C130EA40052FC92 /* SMS.swift in Sources */,
 				A1BEA9BB1B6E61C600767B04 /* MemberList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,7 +398,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "6f069302-5820-4dfb-884e-94aaf73d9993";
 				SWIFT_OBJC_BRIDGING_HEADER = "member/Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -411,7 +416,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "6f069302-5820-4dfb-884e-94aaf73d9993";
 				SWIFT_OBJC_BRIDGING_HEADER = "member/Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

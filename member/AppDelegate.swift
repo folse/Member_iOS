@@ -10,6 +10,7 @@ import UIKit
 
 let API_ROOT = "http://member.mtscandic.com/api/"
 //let API_ROOT = "http://localhost/api/"
+//let API_ROOT = "http://192.168.218.166/api/"
 
 let APP_COLOR = UIColor(red: 252/255.0, green: 138/255.0, blue: 60/255.0, alpha: 1.0)
 

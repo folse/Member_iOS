@@ -650,7 +650,7 @@
             </objects>
             <point key="canvasLocation" x="586" y="-2342"/>
         </scene>
-        <!--Send SMS-->
+        <!--SMS-->
         <scene sceneID="VdJ-Fn-0UY">
             <objects>
                 <viewController id="CrF-Z6-HYE" customClass="SMS" customModule="member" customModuleProvider="target" sceneMemberID="viewController">
@@ -669,9 +669,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Send SMS" id="Mln-Kg-9E7">
+                    <navigationItem key="navigationItem" title="SMS" id="Mln-Kg-9E7">
                         <barButtonItem key="backBarButtonItem" title=" " id="TIp-rR-5g8"/>
-                        <barButtonItem key="rightBarButtonItem" title="Send" id="bhz-dk-P2X">
+                        <barButtonItem key="rightBarButtonItem" title="Skicka" id="bhz-dk-P2X">
                             <connections>
                                 <action selector="sendButtonAction:" destination="CrF-Z6-HYE" id="3Pl-h4-IFB"/>
                             </connections>

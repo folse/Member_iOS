@@ -84,9 +84,16 @@ class Punch: UICollectionViewController {
         
         let shopId : String = NSUserDefaults.standardUserDefaults().objectForKey("shopId") as! String
         
-        let params:NSDictionary = ["shop_id":shopId,
+        let params:NSMutableDictionary = ["shop_id":shopId,
             "customer_username":username,
-            "trade_type":"2"]
+            "trade_type":"2",
+            "need_send_punch_notification":"False"]
+        
+        var needSendPunchNotification:Bool = NSUserDefaults.standardUserDefaults().boolForKey("NEED_SEND_PUNCH_NOTIFICATION")
+        
+        if needSendPunchNotification {
+            params.setValue("True", forKey: "need_send_punch_notification")
+        }
         
         println(params)
         manager.GET(url,

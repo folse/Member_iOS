@@ -28,6 +28,7 @@
 		A1D1DCA01B4365CF0068FCCF /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D1DC9F1B4365CF0068FCCF /* Main.swift */; };
 		A1D1DCA21B4366660068FCCF /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D1DCA11B4366660068FCCF /* Login.swift */; };
 		A1E7FDF01B82B8EB00BD2ABD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E7FDEF1B82B8EB00BD2ABD /* MapKit.framework */; };
+		A1FF68A41C1F2C7B00952AAC /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FF68A31C1F2C7B00952AAC /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		A1D1DC9F1B4365CF0068FCCF /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		A1D1DCA11B4366660068FCCF /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		A1E7FDEF1B82B8EB00BD2ABD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A1FF68A31C1F2C7B00952AAC /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CA41DBE74A0951A11E141058 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -116,6 +118,7 @@
 				A16CC31B1B52DB7B00EA6066 /* PunchCell.swift */,
 				A135813C1B51198100919E38 /* Promotion.swift */,
 				A15FFDCA1C130EA40052FC92 /* SMS.swift */,
+				A1FF68A31C1F2C7B00952AAC /* Settings.swift */,
 				A1C3CFBE1B673BDD00972C24 /* Vender */,
 				A1560F591B40CCD800402354 /* Images.xcassets */,
 				A1560F501B40CCD800402354 /* Supporting Files */,
@@ -277,6 +280,7 @@
 				A16CC31D1B52DB7C00EA6066 /* PunchCell.swift in Sources */,
 				A163F27E1B44BB7800DC8CCE /* Charge.swift in Sources */,
 				A16CC31C1B52DB7C00EA6066 /* Punch.swift in Sources */,
+				A1FF68A41C1F2C7B00952AAC /* Settings.swift in Sources */,
 				A16CC3191B52C8AD00EA6066 /* Member.swift in Sources */,
 				A1C3CFBA1B673BDA00972C24 /* WIndicator.swift in Sources */,
 				A1C3CFBD1B673BDA00972C24 /* WIndicatorImage.swift in Sources */,

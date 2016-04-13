@@ -22,13 +22,13 @@
                             <tableViewSection id="Mrg-XU-aTA">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="70" id="qH9-TJ-GfD">
-                                        <rect key="frame" x="0.0" y="0.0" width="768" height="70"/>
+                                        <rect key="frame" x="0.0" y="64" width="768" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qH9-TJ-GfD" id="WBg-vi-aAm">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobilnummer" minimumFontSize="17" clearButtonMode="always" id="Mu8-bF-Nzf">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="会员手机号" minimumFontSize="17" clearButtonMode="always" id="Mu8-bF-Nzf">
                                                     <rect key="frame" x="20" y="1" width="640" height="68"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -48,7 +48,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="70" id="san-6x-zbo">
-                                        <rect key="frame" x="0.0" y="70" width="768" height="70"/>
+                                        <rect key="frame" x="0.0" y="134" width="768" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="san-6x-zbo" id="yL8-pI-Fjm">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="69"/>
@@ -59,7 +59,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                    <state key="normal" title="Kundhantering">
+                                                    <state key="normal" title="确定">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -77,7 +77,7 @@
                             <outlet property="delegate" destination="QRs-vA-RzT" id="MPy-mD-yQE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Redan kund" id="3sU-M4-FeV">
+                    <navigationItem key="navigationItem" title="查找会员" id="3sU-M4-FeV">
                         <barButtonItem key="backBarButtonItem" title=" " id="pY0-Bu-dLg"/>
                     </navigationItem>
                     <connections>
@@ -117,7 +117,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobilnr ex.71 234 56 78" minimumFontSize="17" clearButtonMode="always" id="WZm-G2-sWz">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="会员手机号" minimumFontSize="17" clearButtonMode="always" id="WZm-G2-sWz">
                                                     <rect key="frame" x="20" y="1" width="728" height="68"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -133,7 +133,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Namn" minimumFontSize="17" id="ZtQ-yc-hA2">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="会员姓名" minimumFontSize="17" id="ZtQ-yc-hA2">
                                                     <rect key="frame" x="20" y="1" width="729" height="68"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -149,7 +149,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Kvantitet att ladda" minimumFontSize="17" id="x1A-6m-NDd">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="充值金额" minimumFontSize="17" id="x1A-6m-NDd">
                                                     <rect key="frame" x="20" y="1" width="729" height="68"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -166,9 +166,9 @@
                             <outlet property="delegate" destination="B9L-XS-NWJ" id="sAR-Wb-j4u"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Ny kund" id="R8s-Wp-pJZ">
+                    <navigationItem key="navigationItem" title="新会员" id="R8s-Wp-pJZ">
                         <barButtonItem key="backBarButtonItem" title=" " id="Cni-z3-WTp"/>
-                        <barButtonItem key="rightBarButtonItem" title="Spara" id="dNi-XM-NB1">
+                        <barButtonItem key="rightBarButtonItem" title="注册" id="dNi-XM-NB1">
                             <connections>
                                 <action selector="DoneButtonAction:" destination="B9L-XS-NWJ" id="Qcf-lL-UFj"/>
                             </connections>
@@ -203,13 +203,13 @@
                             <tableViewSection id="Fcr-gF-w5z">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="70" id="7cq-Dp-ZqZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="768" height="70"/>
+                                        <rect key="frame" x="0.0" y="64" width="768" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7cq-Dp-ZqZ" id="AZ5-tH-SWA">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Kvantitet att förbruka" minimumFontSize="17" id="0Af-tb-ztH">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="消费金额" minimumFontSize="17" id="0Af-tb-ztH">
                                                     <rect key="frame" x="20" y="1" width="698" height="68"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -219,7 +219,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="70" id="ork-We-KuT">
-                                        <rect key="frame" x="0.0" y="70" width="768" height="70"/>
+                                        <rect key="frame" x="0.0" y="134" width="768" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ork-We-KuT" id="9jp-kJ-1uN">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="69"/>
@@ -230,7 +230,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                    <state key="normal" title="Konsumera">
+                                                    <state key="normal" title="消费">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -241,7 +241,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="70" id="LNY-qp-mqt">
-                                        <rect key="frame" x="0.0" y="140" width="768" height="70"/>
+                                        <rect key="frame" x="0.0" y="204" width="768" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LNY-qp-mqt" id="rXj-e5-hBH">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="69"/>
@@ -254,7 +254,7 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Förköpta" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7wK-3e-J3U">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账户余额" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7wK-3e-J3U">
                                                     <rect key="frame" x="19" y="1" width="280" height="68"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -265,13 +265,13 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="70" id="nXg-1a-7h6">
-                                        <rect key="frame" x="0.0" y="210" width="768" height="70"/>
+                                        <rect key="frame" x="0.0" y="274" width="768" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nXg-1a-7h6" id="Z6j-1B-ieR">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total poäng" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oyv-Vz-wwD">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="忠诚度" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oyv-Vz-wwD">
                                                     <rect key="frame" x="19" y="1" width="280" height="68"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -289,7 +289,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="70" id="TW1-RO-5yE">
-                                        <rect key="frame" x="0.0" y="280" width="768" height="70"/>
+                                        <rect key="frame" x="0.0" y="344" width="768" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TW1-RO-5yE" id="BGZ-Lr-vd3">
                                             <rect key="frame" x="0.0" y="0.0" width="735" height="69"/>
@@ -309,13 +309,13 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="70" id="JWn-EW-d7r">
-                                        <rect key="frame" x="0.0" y="350" width="768" height="70"/>
+                                        <rect key="frame" x="0.0" y="414" width="768" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JWn-EW-d7r" id="5ek-0S-5Il">
                                             <rect key="frame" x="0.0" y="0.0" width="735" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ladda förköp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XKl-mo-xEB">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账户充值" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XKl-mo-xEB">
                                                     <rect key="frame" x="19" y="1" width="280" height="68"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -336,7 +336,7 @@
                             <outlet property="delegate" destination="Dv2-Is-RtA" id="eqb-qo-7gx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Redan kund" id="QTB-zt-eEz">
+                    <navigationItem key="navigationItem" title="查找会员" id="QTB-zt-eEz">
                         <barButtonItem key="backBarButtonItem" title=" " id="CA4-vE-kvW"/>
                     </navigationItem>
                     <connections>
@@ -372,7 +372,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Kvantitet att ladda" minimumFontSize="17" id="qj5-0c-q23">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="充值金额" minimumFontSize="17" id="qj5-0c-q23">
                                                     <rect key="frame" x="20" y="0.0" width="280" height="68"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -389,7 +389,7 @@
                             <outlet property="delegate" destination="u01-qW-QFS" id="H2f-vq-LzH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Ladda" id="jc1-lE-vkG">
+                    <navigationItem key="navigationItem" title="会员充值" id="jc1-lE-vkG">
                         <barButtonItem key="rightBarButtonItem" title="Spara" id="5gW-sN-M7s">
                             <connections>
                                 <action selector="doneButtonAction:" destination="u01-qW-QFS" id="gX4-6U-6co"/>
@@ -529,7 +529,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Kampanj" id="Ez6-rp-9Yk">
+                    <navigationItem key="navigationItem" title="店铺通知" id="Ez6-rp-9Yk">
                         <barButtonItem key="rightBarButtonItem" title="Spara" id="rEk-9h-iq0">
                             <connections>
                                 <action selector="saveButtonAction:" destination="jC1-HU-m4r" id="TAR-bq-M1e"/>
@@ -699,7 +699,7 @@
                             <tableViewSection id="Fmr-CO-7rn">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="72" id="Yx2-b8-f8Q">
-                                        <rect key="frame" x="0.0" y="64" width="768" height="72"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yx2-b8-f8Q" id="iKI-zE-r34">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="71"/>
@@ -773,7 +773,7 @@
                                     <inset key="contentEdgeInsets" minX="100" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <inset key="titleEdgeInsets" minX="-28" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <inset key="imageEdgeInsets" minX="-58" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <state key="normal" title="Kundlista" image="user">
+                                    <state key="normal" title="会员列表" image="user">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -789,7 +789,7 @@
                                     <inset key="contentEdgeInsets" minX="100" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <inset key="titleEdgeInsets" minX="-28" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <inset key="imageEdgeInsets" minX="-58" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <state key="normal" title="Ny kund" image="pen">
+                                    <state key="normal" title="新会员" image="pen">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -805,7 +805,7 @@
                                     <inset key="contentEdgeInsets" minX="100" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <inset key="titleEdgeInsets" minX="-28" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <inset key="imageEdgeInsets" minX="-58" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <state key="normal" title="Redan kund" image="shop">
+                                    <state key="normal" title="查找会员" image="shop">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -821,7 +821,7 @@
                                     <inset key="contentEdgeInsets" minX="100" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <inset key="titleEdgeInsets" minX="-28" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <inset key="imageEdgeInsets" minX="-58" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <state key="normal" title="Kampanjinfo" image="note">
+                                    <state key="normal" title="店铺通知" image="note">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>

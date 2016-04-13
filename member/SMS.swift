@@ -15,7 +15,7 @@ class SMS: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        textView.becomeFirstResponder()
     }
 
     @IBAction func sendButtonAction(sender: AnyObject) {
